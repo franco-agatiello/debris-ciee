@@ -71,6 +71,11 @@ function marcadorPorFecha(fecha) {
   return iconoRojo;
 }
 
+function actualizarBotonesModo() {
+  document.getElementById("modo-puntos").classList.toggle("active", modo === "puntos");
+  document.getElementById("modo-calor").classList.toggle("active", modo === "calor");
+}
+
 function actualizarMapa() {
   const datosFiltrados = filtrarDatos();
 
@@ -84,7 +89,6 @@ function actualizarMapa() {
     capaCalor = null;
   }
 
-  // Leyendas: ocultar ambas primero
   if (leyendaPuntos) leyendaPuntos.remove();
   if (leyendaCalor) leyendaCalor.remove();
 
@@ -97,7 +101,7 @@ function actualizarMapa() {
         Masa caída: ${d.tamano_caida_kg} kg<br>
         Material: ${d.material_principal}<br>
         Fecha: ${d.fecha}<br>
-        ${d.imagen ? `<img src="${d.imagen}" alt="${d.nombre}" style="width:100%;max-width:220px;margin-top:8px;border-radius:6px;">` : ''}
+        ${d.imagen ? `<img src="${d.imagen}" alt="${d.nombre}">` : ''}
       `;
       const marker = L.marker([d.lugar_caida.lat, d.lugar_caida.lon], {icon: marcadorPorFecha(d.fecha)})
         .bindPopup(popupContenido);
@@ -123,6 +127,7 @@ function actualizarMapa() {
     }
     mostrarLeyendaCalor();
   }
+  actualizarBotonesModo();
 }
 
 function mostrarLeyendaPuntos() {
