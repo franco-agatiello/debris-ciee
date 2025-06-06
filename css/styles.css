@@ -1,85 +1,63 @@
-let datos = [];
-let mapa, capaPuntos, capaCalor;
-let modo = "puntos";
-
-function filtrarDatos() {
-  const pais = document.getElementById("filtroPais").value;
-  const material = document.getElementById("filtroMaterial").value;
-  const masa = document.getElementById("filtroMasa").value;
-  const desde = document.getElementById("filtroDesde").value;
-  const hasta = document.getElementById("filtroHasta").value;
-
-  return datos.filter(d => 
-    (pais === "" || d.pais === pais) &&
-    (material === "" || d.material_principal === material) &&
-    (masa === "" ||
-      (masa === "0-10" && d.tamano_caida_kg <= 10) ||
-      (masa === "10-50" && d.tamano_caida_kg > 10 && d.tamano_caida_kg <= 50) ||
-      (masa === "50+" && d.tamano_caida_kg > 50)
-    ) &&
-    (desde === "" || d.fecha >= desde) &&
-    (hasta === "" || d.fecha <= hasta)
-  );
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
 }
-
-function actualizarMapa() {
-  if (capaPuntos) mapa.removeLayer(capaPuntos);
-  if (capaCalor) mapa.removeLayer(capaCalor);
-
-  const datosFiltrados = filtrarDatos();
-
-  if (modo === "puntos") {
-    capaPuntos = L.layerGroup(datosFiltrados.map(d => 
-      L.marker([d.lugar_caida.lat, d.lugar_caida.lon])
-        .bindPopup(`<b>${d.nombre}</b><br>
-          País: ${d.pais}<br>
-          Masa inicial: ${d.tamano_inicial_kg} kg<br>
-          Masa caída: ${d.tamano_caida_kg} kg<br>
-          Material: ${d.material_principal}<br>
-          Fecha: ${d.fecha}`))
-    );
-    capaPuntos.addTo(mapa);
-  } else {
-    const puntos = datosFiltrados.map(d => [d.lugar_caida.lat, d.lugar_caida.lon, 1]);
-    capaCalor = L.heatLayer(puntos, {radius: 25}).addTo(mapa);
+#sidebar {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 250px;
+  background: #fff;
+  padding: 1em;
+  z-index: 1000;
+  box-shadow: 2px 0 5px #0001;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+#sidebar label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95em;
+  margin-bottom: 0.6em;
+}
+#mapa {
+  position: absolute;
+  left: 250px; top: 0; right: 0; bottom: 0;
+  min-height: 300px;
+  height: 100vh;
+}
+.modo-btn {
+  margin-top: 0.5em;
+  margin-right: .5em;
+  padding: .5em 1em;
+  border: none;
+  border-radius: 5px;
+  background: #eee;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.modo-btn.selected {
+  background: #1976d2;
+  color: #fff;
+}
+@media (max-width: 800px) {
+  #sidebar {
+    width: 100vw;
+    position: static;
+    box-shadow: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    justify-content: center;
   }
-}
-
-function poblarFiltros() {
-  const paises = ["", ...new Set(datos.map(d => d.pais))];
-  const materiales = ["", ...new Set(datos.map(d => d.material_principal))];
-
-  const paisSel = document.getElementById("filtroPais");
-  paisSel.innerHTML = paises.map(p => `<option value="${p}">${p || "Todos"}</option>`).join("");
-
-  const materialSel = document.getElementById("filtroMaterial");
-  materialSel.innerHTML = materiales.map(m => `<option value="${m}">${m || "Todos"}</option>`).join("");
-}
-
-function listeners() {
-  document.querySelectorAll("#sidebar select, #sidebar input").forEach(el => {
-    el.addEventListener("change", actualizarMapa);
-  });
-  document.getElementById("modoPuntos").onclick = () => {
-    modo = "puntos";
-    document.getElementById("modoPuntos").classList.add("selected");
-    document.getElementById("modoCalor").classList.remove("selected");
-    actualizarMapa();
-  };
-  document.getElementById("modoCalor").onclick = () => {
-    modo = "calor";
-    document.getElementById("modoCalor").classList.add("selected");
-    document.getElementById("modoPuntos").classList.remove("selected");
-    actualizarMapa();
-  };
-}
-
-window.onload = async function() {
-  mapa = L.map('mapa').setView([0, 0], 2);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapa);
-
-  datos = await fetch("data/derbis.json").then(r => r.json());
-  poblarFiltros();
-  listeners();
-  actualizarMapa();
+  #sidebar label {
+    min-width: 120px;
+    flex: 1 1 120px;
+  }
+  #mapa {
+    left: 0;
+    top: 300px;
+    height: calc(100vh - 300px);
+    position: relative;
+  }
 }
