@@ -5,7 +5,8 @@
     "tamano_inicial_kg": 1200,
     "tamano_caida_kg": 300,
     "lugar_caida": { "lat": 45.0, "lon": -93.0 },
-    "material_principal": "Aluminio"
+    "material_principal": "Aluminio",
+    "fecha": "2021-03-15"
   },
   {
     "nombre": "SAT-Beta",
@@ -13,7 +14,8 @@
     "tamano_inicial_kg": 950,
     "tamano_caida_kg": 200,
     "lugar_caida": { "lat": 55.75, "lon": 37.62 },
-    "material_principal": "Titanio"
+    "material_principal": "Titanio",
+    "fecha": "2022-07-22"
   },
   {
     "nombre": "SAT-Gamma",
@@ -21,7 +23,8 @@
     "tamano_inicial_kg": 1400,
     "tamano_caida_kg": 500,
     "lugar_caida": { "lat": 35.0, "lon": 104.0 },
-    "material_principal": "Acero inoxidable"
+    "material_principal": "Acero inoxidable",
+    "fecha": "2023-01-10"
   },
   {
     "nombre": "SAT-Delta",
@@ -29,7 +32,8 @@
     "tamano_inicial_kg": 800,
     "tamano_caida_kg": 100,
     "lugar_caida": { "lat": 20.59, "lon": 78.96 },
-    "material_principal": "Compuesto de carbono"
+    "material_principal": "Compuesto de carbono",
+    "fecha": "2022-11-05"
   },
   {
     "nombre": "SAT-Epsilon",
@@ -37,8 +41,7 @@
     "tamano_inicial_kg": 1100,
     "tamano_caida_kg": 350,
     "lugar_caida": { "lat": 48.85, "lon": 2.35 },
-    "material_principal": "Aluminio"
-  }
-]
+    "material_principal": "Aluminio",
+    "fecha": "2024-02-28"
   }
 ]
