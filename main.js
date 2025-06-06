@@ -22,7 +22,7 @@ async function cargarDatos() {
 // Poblar los selects de país y material con opciones únicas
 function poblarFiltros() {
   // Países únicos
-  const paises = [...new Set((derbis || []).map(d => d.pais))].sort();
+  const paises = (Array.isArray(derbis) ? [...new Set(derbis.map(d => d.pais))] : []).sort();
   const paisSelect = document.getElementById('pais');
   paisSelect.innerHTML = '<option value="">Todos</option>';
   paises.forEach(p => {
@@ -30,7 +30,7 @@ function poblarFiltros() {
   });
 
   // Materiales únicos
-  const materiales = [...new Set((derbis || []).map(d => d.material_principal))].sort();
+  const materiales = (Array.isArray(derbis) ? [...new Set(derbis.map(d => d.material_principal))] : []).sort();
   const materialSelect = document.getElementById('material');
   materialSelect.innerHTML = '<option value="">Todos</option>';
   materiales.forEach(m => {
@@ -70,20 +70,20 @@ function filtrarDatos() {
 
 // Actualiza el mapa según el modo y los filtros
 function actualizarMapa() {
-  const datosFiltrados = filtrarDatos() || [];
+  const datosFiltrados = Array.isArray(filtrarDatos()) ? filtrarDatos() : [];
   // Limpia las capas anteriores
   if (capaPuntos) {
     capaPuntos.clearLayers();
-    try { mapa.removeLayer(capaPuntos); } catch(e){}
+    try { mapa.removeLayer(capaPuntos); } catch {}
   }
   if (capaCalor) {
-    try { mapa.removeLayer(capaCalor); } catch(e){}
+    try { mapa.removeLayer(capaCalor); } catch {}
   }
 
   if (modo === "puntos") {
     capaPuntos = L.layerGroup();
-    (datosFiltrados || []).forEach(d => {
-      if (!d.lugar_caida) return;
+    datosFiltrados.forEach(d => {
+      if (!d.lugar_caida || typeof d.lugar_caida.lat !== "number" || typeof d.lugar_caida.lon !== "number") return;
       const marker = L.marker([d.lugar_caida.lat, d.lugar_caida.lon])
         .bindPopup(`
           <strong>${d.nombre}</strong><br>
@@ -96,8 +96,9 @@ function actualizarMapa() {
     });
     capaPuntos.addTo(mapa);
   } else {
-    const heatData = (datosFiltrados || [])
-      .filter(d => d.lugar_caida)
+    // Para el mapa de calor
+    const heatData = datosFiltrados
+      .filter(d => d.lugar_caida && typeof d.lugar_caida.lat === "number" && typeof d.lugar_caida.lon === "number")
       .map(d => [d.lugar_caida.lat, d.lugar_caida.lon, Math.max(0.2, d.tamano_caida_kg / 100)]);
     capaCalor = L.heatLayer(heatData, { radius: 25 }).addTo(mapa);
   }
@@ -133,5 +134,4 @@ document.addEventListener("DOMContentLoaded", () => {
   initMapa();
   cargarDatos();
   listeners();
-});
 });
