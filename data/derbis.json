@@ -16,5 +16,14 @@
     "lugar_caida": {"lat": 40.71, "lon": -74.00},
     "material_principal": "Titanio",
     "fecha": "2022-11-15"
+  },
+  {
+    "nombre": "Satélite C",
+    "pais": "China",
+    "tamano_inicial_kg": 800,
+    "tamano_caida_kg": 8,
+    "lugar_caida": {"lat": 34.05, "lon": -118.25},
+    "material_principal": "Acero",
+    "fecha": "2021-08-07"
   }
 ]
