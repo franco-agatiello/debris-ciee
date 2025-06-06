@@ -1,62 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Mapa de Caídas de Satélites</title>
+  <meta charset="UTF-8" />
+  <title>Mapa de Derbis de Satélites</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; }
-    #map { height: 90vh; width: 100vw; }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h2>Mapa de Caídas de Satélites</h2>
+  <div id="sidebar">
+    <h2>Filtros</h2>
+    <label for="paisSelect">País</label>
+    <select id="paisSelect">
+      <option value="todos">Todos</option>
+    </select>
+
+    <label for="materialSelect">Material principal</label>
+    <select id="materialSelect">
+      <option value="todos">Todos</option>
+    </select>
+
+    <label for="rangoMasa">Rango de masa de caída</label>
+    <select id="rangoMasa">
+      <option value="todos">Todos</option>
+      <option value="0-10">0 - 10 kg</option>
+      <option value="10-50">10 - 50 kg</option>
+      <option value="50+">Más de 50 kg</option>
+    </select>
+
+    <div class="botones">
+      <button id="verPuntos" class="activo">Ver puntos</button>
+      <button id="verMapaCalor">Ver mapa de calor</button>
+    </div>
+  </div>
   <div id="map"></div>
+
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-    // Inicializar el mapa centrado en el mundo
-    var map = L.map('map').setView([0,0], 2);
-
-    // Capa base de OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    // Datos de ejemplo de caída de satélites
-    var caidas = [
-      {
-        nombre: "Satélite A",
-        pais: "USA",
-        tamaño_inicial: "Grande",
-        tamaño_caida: "Mediano",
-        coords: [40, -74],
-        lugar: "Nueva York",
-        material: "Aluminio"
-      },
-      {
-        nombre: "Satélite B",
-        pais: "China",
-        tamaño_inicial: "Mediano",
-        tamaño_caida: "Pequeño",
-        coords: [35, 105],
-        lugar: "China Central",
-        material: "Titanio"
-      }
-    ];
-
-    // Mostrar cada caída como un marcador
-    caidas.forEach(function(sat) {
-      L.marker(sat.coords)
-        .addTo(map)
-        .bindPopup(
-          `<b>${sat.nombre}</b><br>
-            País: ${sat.pais}<br>
-            Tamaño Inicial: ${sat.tamaño_inicial}<br>
-            Tamaño de Caída: ${sat.tamaño_caida}<br>
-            Lugar: ${sat.lugar}<br>
-            Material: ${sat.material}`
-        );
-    });
-  </script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
