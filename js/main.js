@@ -38,16 +38,20 @@ function filtrarData() {
   const pais = document.getElementById('paisSelect').value;
   const mat = document.getElementById('materialSelect').value;
   const rango = document.getElementById('rangoMasa').value;
+  const fechaDesde = document.getElementById('fechaDesde').value;
+  const fechaHasta = document.getElementById('fechaHasta').value;
 
   return dataGlobal.filter(d => {
     let ok = true;
     if (pais !== 'todos') ok = ok && d.pais === pais;
     if (mat !== 'todos') ok = ok && d.material_principal === mat;
     if (rango !== 'todos') {
-      if (rango === '0-10') ok = ok && d.tamano_caida_kg >= 0 && d.tamano_caida_kg < 10;
-      if (rango === '10-50') ok = ok && d.tamano_caida_kg >= 10 && d.tamano_caida_kg <= 50;
+      if (rango === '0-10') ok = ok && d.tamano_caida_kg >= 0 && d.tamano_caida_kg <= 10;
+      if (rango === '10-50') ok = ok && d.tamano_caida_kg > 10 && d.tamano_caida_kg <= 50;
       if (rango === '50+') ok = ok && d.tamano_caida_kg > 50;
     }
+    if (fechaDesde) ok = ok && d.fecha >= fechaDesde;
+    if (fechaHasta) ok = ok && d.fecha <= fechaHasta;
     return ok;
   });
 }
@@ -62,7 +66,8 @@ function mostrarPuntos(data) {
         País: ${item.pais}<br>
         Masa inicial: ${item.tamano_inicial_kg} kg<br>
         Masa de caída: ${item.tamano_caida_kg} kg<br>
-        Material: ${item.material_principal}
+        Material: ${item.material_principal}<br>
+        Fecha: ${item.fecha || "Sin fecha"}
       `);
     markersLayer.addLayer(marker);
   });
@@ -79,6 +84,8 @@ function mostrarMapaCalor(data) {
 document.getElementById('paisSelect').addEventListener('change', actualizarVista);
 document.getElementById('materialSelect').addEventListener('change', actualizarVista);
 document.getElementById('rangoMasa').addEventListener('change', actualizarVista);
+document.getElementById('fechaDesde').addEventListener('change', actualizarVista);
+document.getElementById('fechaHasta').addEventListener('change', actualizarVista);
 
 document.getElementById('verPuntos').addEventListener('click', function() {
   this.classList.add('activo');
