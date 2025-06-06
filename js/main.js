@@ -1,4 +1,4 @@
-const map = L.map('map').setView([20, 0], 2);
+let map = L.map('map').setView([20, 0], 2);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: 'Map data © OpenStreetMap contributors'
 }).addTo(map);
@@ -11,33 +11,33 @@ fetch('datos/datos.json')
   .then(res => res.json())
   .then(data => {
     dataGlobal = data;
-    llenarFiltros(data);
-    mostrarPuntos(data);
+    inicializarFiltros(data);
+    actualizarVisualizacion();
   });
 
-function llenarFiltros(data) {
-  const paisSelect = document.getElementById('paisSelect');
-  const materialSelect = document.getElementById('materialSelect');
-  // Limpiar y volver a agregar la opción por defecto
-  paisSelect.innerHTML = '<option value="todos">Todos</option>';
-  materialSelect.innerHTML = '<option value="todos">Todos</option>';
-
-  const paises = new Set();
-  const materiales = new Set();
-
-  data.forEach(item => {
-    paises.add(item.pais);
-    materiales.add(item.material_principal);
-  });
-
-  paises.forEach(p => paisSelect.innerHTML += `<option value="${p}">${p}</option>`);
-  materiales.forEach(m => materialSelect.innerHTML += `<option value="${m}">${m}</option>`);
+function inicializarFiltros(data) {
+  const pais = document.getElementById('pais');
+  const material = document.getElementById('material');
+  // Limpiar selects
+  pais.innerHTML = '<option value="todos">Todos</option>';
+  material.innerHTML = '<option value="todos">Todos</option>';
+  // Poblar selects
+  [...new Set(data.map(d => d.pais))].forEach(p => pais.innerHTML += `<option value="${p}">${p}</option>`);
+  [...new Set(data.map(d => d.material_principal))].forEach(m => material.innerHTML += `<option value="${m}">${m}</option>`);
 }
 
+// Filtros reactivos
+['pais','material','masa','fechaDesde','fechaHasta'].forEach(id =>
+  document.getElementById(id).addEventListener('change', actualizarVisualizacion)
+);
+document.querySelectorAll('input[name="vista"]').forEach(radio =>
+  radio.addEventListener('change', actualizarVisualizacion)
+);
+
 function filtrarData() {
-  const pais = document.getElementById('paisSelect').value;
-  const mat = document.getElementById('materialSelect').value;
-  const rango = document.getElementById('rangoMasa').value;
+  const pais = document.getElementById('pais').value;
+  const mat = document.getElementById('material').value;
+  const masa = document.getElementById('masa').value;
   const fechaDesde = document.getElementById('fechaDesde').value;
   const fechaHasta = document.getElementById('fechaHasta').value;
 
@@ -45,15 +45,25 @@ function filtrarData() {
     let ok = true;
     if (pais !== 'todos') ok = ok && d.pais === pais;
     if (mat !== 'todos') ok = ok && d.material_principal === mat;
-    if (rango !== 'todos') {
-      if (rango === '0-10') ok = ok && d.tamano_caida_kg >= 0 && d.tamano_caida_kg <= 10;
-      if (rango === '10-50') ok = ok && d.tamano_caida_kg > 10 && d.tamano_caida_kg <= 50;
-      if (rango === '50+') ok = ok && d.tamano_caida_kg > 50;
+    if (masa !== 'todos') {
+      if (masa === '0-10') ok = ok && d.tamano_caida_kg >= 0 && d.tamano_caida_kg <= 10;
+      if (masa === '10-50') ok = ok && d.tamano_caida_kg > 10 && d.tamano_caida_kg <= 50;
+      if (masa === '50+') ok = ok && d.tamano_caida_kg > 50;
     }
     if (fechaDesde) ok = ok && d.fecha >= fechaDesde;
     if (fechaHasta) ok = ok && d.fecha <= fechaHasta;
     return ok;
   });
+}
+
+function actualizarVisualizacion() {
+  const modo = document.querySelector('input[name="vista"]:checked').value;
+  const filtrados = filtrarData();
+  if (modo === 'puntos') {
+    mostrarPuntos(filtrados);
+  } else {
+    mostrarMapaCalor(filtrados);
+  }
 }
 
 function mostrarPuntos(data) {
@@ -77,31 +87,5 @@ function mostrarMapaCalor(data) {
   markersLayer.clearLayers();
   if (heatLayer) map.removeLayer(heatLayer);
   const puntos = data.map(d => [d.lugar_caida.lat, d.lugar_caida.lon, 1]);
-  heatLayer = L.heatLayer(puntos, { radius: 30, blur: 20, maxZoom: 8 }).addTo(map);
-}
-
-// Eventos de filtros y botones
-document.getElementById('paisSelect').addEventListener('change', actualizarVista);
-document.getElementById('materialSelect').addEventListener('change', actualizarVista);
-document.getElementById('rangoMasa').addEventListener('change', actualizarVista);
-document.getElementById('fechaDesde').addEventListener('change', actualizarVista);
-document.getElementById('fechaHasta').addEventListener('change', actualizarVista);
-
-document.getElementById('verPuntos').addEventListener('click', function() {
-  this.classList.add('activo');
-  document.getElementById('verMapaCalor').classList.remove('activo');
-  mostrarPuntos(filtrarData());
-});
-document.getElementById('verMapaCalor').addEventListener('click', function() {
-  this.classList.add('activo');
-  document.getElementById('verPuntos').classList.remove('activo');
-  mostrarMapaCalor(filtrarData());
-});
-
-function actualizarVista() {
-  if (document.getElementById('verPuntos').classList.contains('activo')) {
-    mostrarPuntos(filtrarData());
-  } else {
-    mostrarMapaCalor(filtrarData());
-  }
+  heatLayer = L.heatLayer(puntos, { radius: 28, blur: 20, maxZoom: 8 }).addTo(map);
 }
