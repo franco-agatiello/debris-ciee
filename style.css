@@ -1,22 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
 body, html {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: #f7f9fb;
+  color: #23272f;
 }
 
 #sidebar {
   min-height: 100vh;
-  border-right: 1px solid #e0e0e0;
+  border-right: 1px solid #dde1e7;
+  background: #fff;
+  box-shadow: 2px 0 10px rgba(50,60,90,0.04);
 }
 
 #sidebar h4 {
   margin-top: 1rem;
   margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #2c3e50;
 }
 
 #filter-form label {
   font-weight: 500;
   margin-top: 0.5rem;
+  color: #34495e;
+}
+
+#filter-form .form-select, #filter-form .form-control {
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 #map {
@@ -24,10 +40,21 @@ body, html {
   min-height: 100vh;
   height: 100vh;
   z-index: 1;
+  border-left: 1px solid #dde1e7;
+  box-shadow: 0 5px 40px rgba(30,40,90,0.05);
 }
 
 .btn-primary, .btn-secondary {
-  transition: background 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
+  font-weight: 600;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.05);
+  margin-bottom: 0.5rem;
+}
+.btn-primary.active, .btn-secondary.active {
+  box-shadow: 0 4px 16px rgba(44,62,80,0.10);
+  outline: 2px solid #0056b3;
 }
 
 .btn-primary:focus, .btn-secondary:focus {
@@ -40,23 +67,38 @@ body, html {
     min-height: unset;
     border-right: none;
     border-bottom: 1px solid #e0e0e0;
+    box-shadow: none;
   }
   #map {
     min-height: 60vh;
     height: 60vh;
+    border-left: none;
   }
 }
 
-/* --- Fondo sólido para leyendas --- */
+/* Leyenda profesional */
 .info.legend {
   background: #fff;
   opacity: 1;
-  padding: 10px 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  border: 1px solid #ccc;
+  padding: 16px 22px 14px 22px;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+  border: 1px solid #dde1e7;
+  font-size: 0.98rem;
+  color: #2c3e50;
+  min-width: 200px;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
-    min-height: 60vh;
-    height: 60vh;
-  }
+.info.legend strong {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Custom para imágenes popup */
+.leaflet-popup-content img {
+  box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+  border-radius: 8px;
+  margin-top: 4px;
+  max-width: 220px;
 }
