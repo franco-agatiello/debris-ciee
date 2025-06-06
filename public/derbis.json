@@ -13,8 +13,17 @@
     "pais": "USA",
     "tamano_inicial_kg": 900,
     "tamano_caida_kg": 8,
-    "lugar_caida": { "lat": 40.7128, "lon": -74.0060 },
+    "lugar_caida": { "lat": 40.7128, "lon": -74.006 },
     "material_principal": "Titanio",
     "fecha": "2022-09-20"
+  },
+  {
+    "nombre": "Satélite C",
+    "pais": "China",
+    "tamano_inicial_kg": 2000,
+    "tamano_caida_kg": 65,
+    "lugar_caida": { "lat": 31.2304, "lon": 121.4737 },
+    "material_principal": "Hierro",
+    "fecha": "2024-01-10"
   }
 ]
