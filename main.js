@@ -22,7 +22,7 @@ async function cargarDatos() {
 // Poblar los selects de país y material con opciones únicas
 function poblarFiltros() {
   // Países únicos
-  const paises = [...new Set(derbis.map(d => d.pais))].sort();
+  const paises = [...new Set((derbis || []).map(d => d.pais))].sort();
   const paisSelect = document.getElementById('pais');
   paisSelect.innerHTML = '<option value="">Todos</option>';
   paises.forEach(p => {
@@ -30,7 +30,7 @@ function poblarFiltros() {
   });
 
   // Materiales únicos
-  const materiales = [...new Set(derbis.map(d => d.material_principal))].sort();
+  const materiales = [...new Set((derbis || []).map(d => d.material_principal))].sort();
   const materialSelect = document.getElementById('material');
   materialSelect.innerHTML = '<option value="">Todos</option>';
   materiales.forEach(m => {
@@ -70,19 +70,19 @@ function filtrarDatos() {
 
 // Actualiza el mapa según el modo y los filtros
 function actualizarMapa() {
-  const datosFiltrados = filtrarDatos();
+  const datosFiltrados = filtrarDatos() || [];
   // Limpia las capas anteriores
   if (capaPuntos) {
     capaPuntos.clearLayers();
-    mapa.removeLayer(capaPuntos);
+    try { mapa.removeLayer(capaPuntos); } catch(e){}
   }
   if (capaCalor) {
-    mapa.removeLayer(capaCalor);
+    try { mapa.removeLayer(capaCalor); } catch(e){}
   }
 
   if (modo === "puntos") {
     capaPuntos = L.layerGroup();
-    datosFiltrados.forEach(d => {
+    (datosFiltrados || []).forEach(d => {
       if (!d.lugar_caida) return;
       const marker = L.marker([d.lugar_caida.lat, d.lugar_caida.lon])
         .bindPopup(`
@@ -96,8 +96,7 @@ function actualizarMapa() {
     });
     capaPuntos.addTo(mapa);
   } else {
-    // Para el mapa de calor
-    const heatData = datosFiltrados
+    const heatData = (datosFiltrados || [])
       .filter(d => d.lugar_caida)
       .map(d => [d.lugar_caida.lat, d.lugar_caida.lon, Math.max(0.2, d.tamano_caida_kg / 100)]);
     capaCalor = L.heatLayer(heatData, { radius: 25 }).addTo(mapa);
@@ -134,4 +133,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initMapa();
   cargarDatos();
   listeners();
+});
 });
