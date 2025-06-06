@@ -1,48 +1,38 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visualizador de Basura Espacial</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  <title>Mapa de Caídas de Satélites</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { height: 500px; width: 100%; }
+  </style>
 </head>
 <body>
-  <h1>Visualizador Global de Basura Espacial</h1>
+  <h2>Mapa de Caídas de Satélites</h2>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Inicializar el mapa
+    var map = L.map('map').setView([0, 0], 2); // Centro del mundo
 
-  <div class="filtros">
-    <label for="satSelect">Satélite:</label>
-    <select id="satSelect">
-      <option value="todos">Todos</option>
-    </select>
+    // Cargar capa base
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
 
-    <label for="paisSelect">País:</label>
-    <select id="paisSelect">
-      <option value="todos">Todos</option>
-    </select>
+    // Ejemplo de datos de caídas
+    var caidas = [
+      {nombre: "Satélite A", pais: "USA", tamaño: "Grande", coords: [40, -74], material: "Aluminio"},
+      {nombre: "Satélite B", pais: "China", tamaño: "Pequeño", coords: [35, 105], material: "Titanio"},
+    ];
 
-    <label for="tamanoInicial">Tamaño Inicial (kg):</label>
-    <input type="number" id="tamanoInicial" placeholder="mínimo">
-    <input type="number" id="tamanoInicialMax" placeholder="máximo">
-
-    <label for="tamanoCaida">Tamaño de Caída (kg):</label>
-    <input type="number" id="tamanoCaida" placeholder="mínimo">
-    <input type="number" id="tamanoCaidaMax" placeholder="máximo">
-
-    <label for="materialSelect">Material Principal:</label>
-    <select id="materialSelect">
-      <option value="todos">Todos</option>
-    </select>
-
-    <button id="aplicarFiltros">Aplicar Filtros</button>
-    <button id="verMapaCalor">Ver Mapa de Calor</button>
-    <button id="verPuntos">Ver Puntos</button>
-  </div>
-
-  <div id="map" style="height: 600px;"></div>
-
-  <script src="main.js"></script>
+    // Mostrar puntos en el mapa
+    caidas.forEach(function(caida) {
+      L.marker(caida.coords)
+        .addTo(map)
+        .bindPopup(`<b>${caida.nombre}</b><br>Pais: ${caida.pais}<br>Tamaño: ${caida.tamaño}<br>Material: ${caida.material}`);
+    });
+  </script>
 </body>
 </html>
