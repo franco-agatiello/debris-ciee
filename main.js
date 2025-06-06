@@ -9,24 +9,51 @@ async function cargarDatos() {
 }
 
 function poblarFiltros() {
-  // Rellena selects de país/material con opciones únicas de los datos
-  // ...
+  // País
+  const paises = Array.from(new Set(derbis.map(d => d.pais)));
+  const paisSelect = document.getElementById("pais");
+  paisSelect.innerHTML = '<option value="">Todos</option>' + paises.map(p => `<option value="${p}">${p}</option>`).join('');
+
+  // Material
+  const materiales = Array.from(new Set(derbis.map(d => d.material_principal)));
+  const materialSelect = document.getElementById("material");
+  materialSelect.innerHTML = '<option value="">Todos</option>' + materiales.map(m => `<option value="${m}">${m}</option>`).join('');
 }
 
 function obtenerFiltros() {
-  // Lee los filtros del DOM y devuelve un objeto
+  return {
+    pais: document.getElementById("pais").value,
+    material: document.getElementById("material").value,
+    masa: document.getElementById("masa").value,
+    fechaDesde: document.getElementById("fecha-desde").value,
+    fechaHasta: document.getElementById("fecha-hasta").value
+  };
 }
 
 function filtrarDatos() {
-  // Por ahora, simplemente devolvemos todos los datos.
-  // Aquí luego puedes implementar el filtrado real.
-  return derbis;
+  const filtros = obtenerFiltros();
+  return derbis.filter(d => {
+    // filtro país
+    if (filtros.pais && d.pais !== filtros.pais) return false;
+    // filtro material
+    if (filtros.material && d.material_principal !== filtros.material) return false;
+    // filtro masa
+    if (filtros.masa) {
+      if (filtros.masa === "0-10" && !(d.tamano_caida_kg >= 0 && d.tamano_caida_kg <= 10)) return false;
+      if (filtros.masa === "10-50" && !(d.tamano_caida_kg > 10 && d.tamano_caida_kg <= 50)) return false;
+      if (filtros.masa === "50+" && !(d.tamano_caida_kg > 50)) return false;
+    }
+    // filtro fecha
+    if (filtros.fechaDesde && d.fecha < filtros.fechaDesde) return false;
+    if (filtros.fechaHasta && d.fecha > filtros.fechaHasta) return false;
+    return true;
+  });
 }
 
 function actualizarMapa() {
   const datosFiltrados = filtrarDatos();
   if (capaPuntos) capaPuntos.clearLayers();
-  if (capaCalor) mapa.removeLayer(capaCalor);
+  if (capaCalor && mapa.hasLayer(capaCalor)) mapa.removeLayer(capaCalor);
   if (modo === "puntos") {
     capaPuntos = L.layerGroup();
     datosFiltrados.forEach(d => {
@@ -53,8 +80,20 @@ function initMapa() {
 }
 
 function listeners() {
-  // Listeners para los filtros y botones
-  // Al cambiar, llama a actualizarMapa()
+  // Filtros
+  ["pais", "material", "masa", "fecha-desde", "fecha-hasta"].forEach(id => {
+    document.getElementById(id).addEventListener("change", actualizarMapa);
+  });
+
+  // Botones modo
+  document.getElementById("modo-puntos").addEventListener("click", () => {
+    modo = "puntos";
+    actualizarMapa();
+  });
+  document.getElementById("modo-calor").addEventListener("click", () => {
+    modo = "calor";
+    actualizarMapa();
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
