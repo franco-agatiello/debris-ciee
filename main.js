@@ -50,22 +50,6 @@ function filtrarDatos() {
   });
 }
 
-// Calibración automática del 'max' para el heatmap basado en densidad local
-function calcularMaxDensidad(heatData, cellSize = 1) {
-  // cellSize en grados. 1 = 1 grado lat/lon
-  const grid = {};
-  let max = 0;
-  heatData.forEach(([lat, lon]) => {
-    // Redondea a la celda más cercana
-    const latCell = Math.round(lat / cellSize);
-    const lonCell = Math.round(lon / cellSize);
-    const key = `${latCell}_${lonCell}`;
-    grid[key] = (grid[key] || 0) + 1;
-    if (grid[key] > max) max = grid[key];
-  });
-  return max || 1; // Para evitar max=0 si no hay datos
-}
-
 function actualizarMapa() {
   const datosFiltrados = filtrarDatos();
 
@@ -95,20 +79,18 @@ function actualizarMapa() {
     });
     capaPuntos.addTo(mapa);
   } else {
-    // Cada punto suma 1 al calor
+    // Solo lat/lon para presencia, no masa
     const heatData = datosFiltrados.map(d => [d.lugar_caida.lat, d.lugar_caida.lon]);
+
     if (heatData.length) {
-      // Calibración automática de la escala de calor
-      const maxDensidad = calcularMaxDensidad(heatData, 1); // 1 grado de celda
       capaCalor = L.heatLayer(heatData, {
-        radius: 32,
-        blur: 30,
-        maxZoom: 2,
-        max: maxDensidad,
+        radius: 30,
+        blur: 25,
+        minOpacity: 0.4,    // Siempre queda algo de color base
+        max: 30,            // Ajustá según la cantidad de datos, más alto para muchos datos
         gradient: {
-          0.0: 'rgba(0,0,255,0.12)', // azul transparente, fondo frío
-          0.2: 'blue',
-          0.4: 'lime',
+          0.1: 'blue',
+          0.3: 'lime',
           0.6: 'yellow',
           1.0: 'red'
         }
@@ -121,10 +103,12 @@ function actualizarMapa() {
 
 function agregarLeyenda() {
   const legend = L.control({position: 'bottomright'});
+
   legend.onAdd = function (map) {
     const div = L.DomUtil.create('div', 'info legend');
     const grades = ['Bajo', 'Medio', 'Alto', 'Muy alto'];
     const colors = ['blue', 'lime', 'yellow', 'red'];
+
     div.innerHTML += '<strong>Densidad de caídas</strong><br>';
     for (let i = 0; i < grades.length; i++) {
       div.innerHTML +=
@@ -132,6 +116,7 @@ function agregarLeyenda() {
     }
     return div;
   };
+
   legend.addTo(mapa);
 }
 
