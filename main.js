@@ -52,8 +52,18 @@ function filtrarDatos() {
 
 function actualizarMapa() {
   const datosFiltrados = filtrarDatos();
-  if (capaPuntos) capaPuntos.clearLayers();
-  if (capaCalor && mapa.hasLayer(capaCalor)) mapa.removeLayer(capaCalor);
+
+  // Limpia ambas capas para evitar superposiciones
+  if (capaPuntos) {
+    capaPuntos.clearLayers();
+    try { mapa.removeLayer(capaPuntos); } catch (e) {}
+    capaPuntos = null;
+  }
+  if (capaCalor && mapa.hasLayer(capaCalor)) {
+    mapa.removeLayer(capaCalor);
+    capaCalor = null;
+  }
+
   if (modo === "puntos") {
     capaPuntos = L.layerGroup();
     datosFiltrados.forEach(d => {
@@ -70,7 +80,12 @@ function actualizarMapa() {
     capaPuntos.addTo(mapa);
   } else {
     const heatData = datosFiltrados.map(d => [d.lugar_caida.lat, d.lugar_caida.lon, d.tamano_caida_kg/100]);
-    capaCalor = L.heatLayer(heatData, {radius: 25}).addTo(mapa);
+    console.log('Datos para el mapa de calor:', heatData); // <-- Debug
+    if (heatData.length) {
+      capaCalor = L.heatLayer(heatData, {radius: 25}).addTo(mapa);
+    } else {
+      capaCalor = null;
+    }
   }
 }
 
