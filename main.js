@@ -18,7 +18,9 @@ function obtenerFiltros() {
 }
 
 function filtrarDatos() {
-  // Devuelve los datos filtrados según los selects/inputs
+  // Por ahora, simplemente devolvemos todos los datos.
+  // Aquí luego puedes implementar el filtrado real.
+  return derbis;
 }
 
 function actualizarMapa() {
