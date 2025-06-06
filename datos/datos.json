@@ -1,47 +1,21 @@
 [
   {
-    "nombre": "SAT-Alpha",
-    "pais": "Estados Unidos",
-    "tamano_inicial_kg": 1200,
-    "tamano_caida_kg": 300,
-    "lugar_caida": { "lat": 45.0, "lon": -93.0 },
-    "material_principal": "Aluminio",
-    "fecha": "2021-03-15"
-  },
-  {
-    "nombre": "SAT-Beta",
+    "nombre": "Satélite A",
     "pais": "Rusia",
-    "tamano_inicial_kg": 950,
-    "tamano_caida_kg": 200,
-    "lugar_caida": { "lat": 55.75, "lon": 37.62 },
-    "material_principal": "Titanio",
-    "fecha": "2022-07-22"
-  },
-  {
-    "nombre": "SAT-Gamma",
-    "pais": "China",
-    "tamano_inicial_kg": 1400,
-    "tamano_caida_kg": 500,
-    "lugar_caida": { "lat": 35.0, "lon": 104.0 },
-    "material_principal": "Acero inoxidable",
-    "fecha": "2023-01-10"
-  },
-  {
-    "nombre": "SAT-Delta",
-    "pais": "India",
-    "tamano_inicial_kg": 800,
-    "tamano_caida_kg": 100,
-    "lugar_caida": { "lat": 20.59, "lon": 78.96 },
-    "material_principal": "Compuesto de carbono",
-    "fecha": "2022-11-05"
-  },
-  {
-    "nombre": "SAT-Epsilon",
-    "pais": "Francia",
-    "tamano_inicial_kg": 1100,
-    "tamano_caida_kg": 350,
-    "lugar_caida": { "lat": 48.85, "lon": 2.35 },
+    "tamano_inicial_kg": 1200,
+    "tamano_caida_kg": 20,
+    "lugar_caida": { "lat": 50.45, "lon": 30.523 },
     "material_principal": "Aluminio",
-    "fecha": "2024-02-28"
+    "fecha": "2019-05-12"
+  },
+  {
+    "nombre": "Satélite B",
+    "pais": "EEUU",
+    "tamano_inicial_kg": 800,
+    "tamano_caida_kg": 55,
+    "lugar_caida": { "lat": -34.61, "lon": -58.38 },
+    "material_principal": "Titanio",
+    "fecha": "2021-10-22"
   }
+  // ... más registros
 ]
