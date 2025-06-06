@@ -2,44 +2,49 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Mapa de Derbis de Satélites</title>
+  <title>Dashboard de Derbis Espaciales</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="sidebar">
-    <h2>Filtros</h2>
-    <label for="paisSelect">País</label>
-    <select id="paisSelect">
-      <option value="todos">Todos</option>
-    </select>
-
-    <label for="materialSelect">Material principal</label>
-    <select id="materialSelect">
-      <option value="todos">Todos</option>
-    </select>
-
-    <label for="rangoMasa">Rango de masa de caída</label>
-    <select id="rangoMasa">
-      <option value="todos">Todos</option>
-      <option value="0-10">0 - 10 kg</option>
-      <option value="10-50">10 - 50 kg</option>
-      <option value="50+">Más de 50 kg</option>
-    </select>
-
-    <label for="fechaDesde">Fecha desde</label>
-    <input type="date" id="fechaDesde">
-
-    <label for="fechaHasta">Fecha hasta</label>
-    <input type="date" id="fechaHasta">
-
-    <div class="botones">
-      <button id="verPuntos" class="activo">Ver puntos</button>
-      <button id="verMapaCalor">Ver mapa de calor</button>
+  <aside class="sidebar">
+    <h1>Derbis Espaciales</h1>
+    <div class="filtro">
+      <label for="pais">País</label>
+      <select id="pais"><option value="todos">Todos</option></select>
     </div>
-  </div>
-  <div id="map"></div>
-
+    <div class="filtro">
+      <label for="material">Material principal</label>
+      <select id="material"><option value="todos">Todos</option></select>
+    </div>
+    <div class="filtro">
+      <label for="masa">Rango de masa de caída</label>
+      <select id="masa">
+        <option value="todos">Todos</option>
+        <option value="0-10">0-10 kg</option>
+        <option value="10-50">10-50 kg</option>
+        <option value="50+">Más de 50 kg</option>
+      </select>
+    </div>
+    <div class="filtro">
+      <label for="fechaDesde">Fecha desde</label>
+      <input type="date" id="fechaDesde">
+    </div>
+    <div class="filtro">
+      <label for="fechaHasta">Fecha hasta</label>
+      <input type="date" id="fechaHasta">
+    </div>
+    <div class="filtro">
+      <label>Visualización</label>
+      <div class="toggle">
+        <input type="radio" name="vista" id="puntos" value="puntos" checked>
+        <label for="puntos">Puntos</label>
+        <input type="radio" name="vista" id="calor" value="calor">
+        <label for="calor">Mapa de calor</label>
+      </div>
+    </div>
+  </aside>
+  <main id="map"></main>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
   <script src="main.js"></script>
