@@ -2,11 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard de Derbis Espaciales</title>
+  <title>Derbis Espaciales</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- CSS de Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="leaflet.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="sidebar">
@@ -25,23 +24,19 @@
         <option value="50+">Más de 50 kg</option>
       </select>
     </label>
-    <label>Fecha desde:
+    <label>Desde:
       <input type="date" id="filtroDesde">
     </label>
-    <label>Fecha hasta:
+    <label>Hasta:
       <input type="date" id="filtroHasta">
     </label>
-    <div>
-      <button id="modoPuntos" class="modo-btn selected">Puntos</button>
-      <button id="modoCalor" class="modo-btn">Mapa de calor</button>
-    </div>
+    <button id="modoBtn">Cambiar a Mapa de Calor</button>
   </div>
-  <div id="mapa"></div>
+  <div id="map"></div>
 
-  <!-- JS de Leaflet y Leaflet.heat desde CDN -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
-  <!-- Tu JS principal -->
-  <script src="js/app.js"></script>
+  <script src="leaflet.js"></script>
+  <script src="leaflet-heat.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
+
