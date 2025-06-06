@@ -1,0 +1,42 @@
+[
+  {
+    "nombre": "SAT-Alpha",
+    "pais": "Estados Unidos",
+    "tamano_inicial_kg": 1200,
+    "tamano_caida_kg": 300,
+    "lugar_caida": { "lat": 45.0, "lon": -93.0 },
+    "material_principal": "Aluminio"
+  },
+  {
+    "nombre": "SAT-Beta",
+    "pais": "Rusia",
+    "tamano_inicial_kg": 950,
+    "tamano_caida_kg": 200,
+    "lugar_caida": { "lat": 55.75, "lon": 37.62 },
+    "material_principal": "Titanio"
+  },
+  {
+    "nombre": "SAT-Gamma",
+    "pais": "China",
+    "tamano_inicial_kg": 1400,
+    "tamano_caida_kg": 500,
+    "lugar_caida": { "lat": 35.0, "lon": 104.0 },
+    "material_principal": "Acero inoxidable"
+  },
+  {
+    "nombre": "SAT-Delta",
+    "pais": "India",
+    "tamano_inicial_kg": 800,
+    "tamano_caida_kg": 100,
+    "lugar_caida": { "lat": 20.59, "lon": 78.96 },
+    "material_principal": "Compuesto de carbono"
+  },
+  {
+    "nombre": "SAT-Epsilon",
+    "pais": "Francia",
+    "tamano_inicial_kg": 1100,
+    "tamano_caida_kg": 350,
+    "lugar_caida": { "lat": 48.85, "lon": 2.35 },
+    "material_principal": "Aluminio"
+  }
+]
