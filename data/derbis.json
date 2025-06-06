@@ -1,20 +1,202 @@
 [
   {
-    "nombre": "Satélite A",
-    "pais": "Argentina",
-    "tamano_inicial_kg": 1200,
-    "tamano_caida_kg": 50,
-    "lugar_caida": {"lat": -34.6, "lon": -58.4},
-    "material_principal": "Aluminio",
-    "fecha": "2024-05-01"
+    "nombre": "Cosmos 954",
+    "pais": "Rusia",
+    "tamano_caida_kg": 900,
+    "material_principal": "Titanio",
+    "fecha": "1978-01-24",
+    "lugar_caida": {"lat": 62.0, "lon": -120.0}
   },
   {
-    "nombre": "Satélite B",
+    "nombre": "Skylab",
     "pais": "Estados Unidos",
-    "tamano_inicial_kg": 800,
-    "tamano_caida_kg": 5,
-    "lugar_caida": {"lat": 37.7, "lon": -122.4},
-    "material_principal": "Titanio",
-    "fecha": "2024-03-15"
+    "tamano_caida_kg": 75000,
+    "material_principal": "Aluminio",
+    "fecha": "1979-07-11",
+    "lugar_caida": {"lat": -31.0, "lon": 122.0}
+  },
+  {
+    "nombre": "Salyut 7",
+    "pais": "Rusia",
+    "tamano_caida_kg": 4000,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "1991-02-07",
+    "lugar_caida": {"lat": -34.0, "lon": -53.0}
+  },
+  {
+    "nombre": "Mir",
+    "pais": "Rusia",
+    "tamano_caida_kg": 130000,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2001-03-23",
+    "lugar_caida": {"lat": -40.0, "lon": -160.0}
+  },
+  {
+    "nombre": "UARS",
+    "pais": "Estados Unidos",
+    "tamano_caida_kg": 5660,
+    "material_principal": "Aluminio",
+    "fecha": "2011-09-24",
+    "lugar_caida": {"lat": 14.1, "lon": -170.2}
+  },
+  {
+    "nombre": "Tiangong-1",
+    "pais": "China",
+    "tamano_caida_kg": 8500,
+    "material_principal": "Aluminio",
+    "fecha": "2018-04-02",
+    "lugar_caida": {"lat": -13.6, "lon": -164.3}
+  },
+  {
+    "nombre": "GOCE",
+    "pais": "Europa",
+    "tamano_caida_kg": 1100,
+    "material_principal": "Aluminio",
+    "fecha": "2013-11-11",
+    "lugar_caida": {"lat": -60.0, "lon": -62.0}
+  },
+  {
+    "nombre": "Genesis II",
+    "pais": "Estados Unidos",
+    "tamano_caida_kg": 1360,
+    "material_principal": "Aluminio",
+    "fecha": "2015-08-01",
+    "lugar_caida": {"lat": 21.0, "lon": -148.0}
+  },
+  {
+    "nombre": "Iridium 33",
+    "pais": "Estados Unidos",
+    "tamano_caida_kg": 560,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2009-02-10",
+    "lugar_caida": {"lat": 72.5, "lon": 97.4}
+  },
+  {
+    "nombre": "Fengyun-1C",
+    "pais": "China",
+    "tamano_caida_kg": 880,
+    "material_principal": "Aluminio",
+    "fecha": "2007-01-11",
+    "lugar_caida": {"lat": 51.0, "lon": 82.0}
+  },
+  {
+    "nombre": "Vanguard 1",
+    "pais": "Estados Unidos",
+    "tamano_caida_kg": 1.5,
+    "material_principal": "Magnesio",
+    "fecha": "1964-03-17",
+    "lugar_caida": {"lat": 28.5, "lon": -80.5}
+  },
+  {
+    "nombre": "Molniya 1-67",
+    "pais": "Rusia",
+    "tamano_caida_kg": 1600,
+    "material_principal": "Aluminio",
+    "fecha": "1996-03-19",
+    "lugar_caida": {"lat": 60.0, "lon": 90.0}
+  },
+  {
+    "nombre": "Telstar 402",
+    "pais": "Estados Unidos",
+    "tamano_caida_kg": 1900,
+    "material_principal": "Aluminio",
+    "fecha": "1997-09-23",
+    "lugar_caida": {"lat": 25.0, "lon": -60.0}
+  },
+  {
+    "nombre": "ERS-2",
+    "pais": "Europa",
+    "tamano_caida_kg": 2040,
+    "material_principal": "Aluminio",
+    "fecha": "2024-02-21",
+    "lugar_caida": {"lat": -9.5, "lon": 65.6}
+  },
+  {
+    "nombre": "Envisat",
+    "pais": "Europa",
+    "tamano_caida_kg": 8211,
+    "material_principal": "Aluminio",
+    "fecha": "2023-08-12",
+    "lugar_caida": {"lat": 34.0, "lon": 135.0}
+  },
+  {
+    "nombre": "NOAA-17",
+    "pais": "Estados Unidos",
+    "tamano_caida_kg": 1400,
+    "material_principal": "Aluminio",
+    "fecha": "2021-03-10",
+    "lugar_caida": {"lat": 10.0, "lon": -45.0}
+  },
+  {
+    "nombre": "Astra 1A",
+    "pais": "Luxemburgo",
+    "tamano_caida_kg": 1200,
+    "material_principal": "Aluminio",
+    "fecha": "2012-11-15",
+    "lugar_caida": {"lat": 5.0, "lon": 20.0}
+  },
+  {
+    "nombre": "Prospero",
+    "pais": "Reino Unido",
+    "tamano_caida_kg": 66,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "1971-10-28",
+    "lugar_caida": {"lat": 51.5, "lon": -0.1}
+  },
+  {
+    "nombre": "Ofeq-1",
+    "pais": "Israel",
+    "tamano_caida_kg": 160,
+    "material_principal": "Aluminio",
+    "fecha": "1988-09-19",
+    "lugar_caida": {"lat": 31.8, "lon": 35.2}
+  },
+  {
+    "nombre": "Beidou-3M",
+    "pais": "China",
+    "tamano_caida_kg": 1000,
+    "material_principal": "Aluminio",
+    "fecha": "2018-11-19",
+    "lugar_caida": {"lat": 30.0, "lon": 104.0}
+  },
+  {
+    "nombre": "RISAT-1",
+    "pais": "India",
+    "tamano_caida_kg": 1850,
+    "material_principal": "Aluminio",
+    "fecha": "2022-10-30",
+    "lugar_caida": {"lat": 22.6, "lon": 88.4}
+  },
+  {
+    "nombre": "Yamal 402",
+    "pais": "Rusia",
+    "tamano_caida_kg": 2400,
+    "material_principal": "Aluminio",
+    "fecha": "2012-12-09",
+    "lugar_caida": {"lat": 55.8, "lon": 37.6}
+  },
+  {
+    "nombre": "Hispasat 1A",
+    "pais": "España",
+    "tamano_caida_kg": 1300,
+    "material_principal": "Aluminio",
+    "fecha": "2003-09-15",
+    "lugar_caida": {"lat": 40.4, "lon": -3.7}
+  },
+  {
+    "nombre": "Alouette 1",
+    "pais": "Canadá",
+    "tamano_caida_kg": 145,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "1962-09-29",
+    "lugar_caida": {"lat": 45.4, "lon": -75.7}
+  },
+  {
+    "nombre": "Arabsat-1A",
+    "pais": "Arabia Saudita",
+    "tamano_caida_kg": 1200,
+    "material_principal": "Aluminio",
+    "fecha": "1985-02-08",
+    "lugar_caida": {"lat": 24.7, "lon": 46.7}
   }
 ]
