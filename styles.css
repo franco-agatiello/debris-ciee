@@ -1,27 +1,48 @@
 body, html {
+  height: 100%;
   margin: 0;
   padding: 0;
-  height: 100%;
-  font-family: sans-serif;
-}
-
-#map {
-  height: 100%;
-  width: calc(100% - 250px);
-  float: right;
 }
 
 #sidebar {
-  width: 250px;
-  background: #f8f9fa;
-  padding: 10px;
-  height: 100%;
-  float: left;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  min-height: 100vh;
+  border-right: 1px solid #e0e0e0;
 }
 
-label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 14px;
+#sidebar h4 {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+#filter-form label {
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+#map {
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  z-index: 1;
+}
+
+.btn-primary, .btn-secondary {
+  transition: background 0.2s;
+}
+
+.btn-primary:focus, .btn-secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.15rem #007bff66;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    min-height: unset;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  #map {
+    min-height: 60vh;
+    height: 60vh;
+  }
 }
