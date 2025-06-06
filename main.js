@@ -84,7 +84,6 @@ function actualizarMapa() {
     capaCalor = null;
   }
 
-  // Leyendas: ocultar ambas primero
   if (leyendaPuntos) leyendaPuntos.remove();
   if (leyendaCalor) leyendaCalor.remove();
 
@@ -126,11 +125,11 @@ function actualizarMapa() {
 function mostrarLeyendaPuntos() {
   leyendaPuntos = L.control({position: 'bottomright'});
   leyendaPuntos.onAdd = function (map) {
-    const div = L.DomUtil.create('div', 'info legend');
-    div.innerHTML += `<strong>Color del marcador según año de caída</strong><br>`;
-    div.innerHTML += `<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png" style="width:14px;vertical-align:middle;"> <span style="color:#999">Antes de 2000</span><br>`;
-    div.innerHTML += `<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png" style="width:14px;vertical-align:middle;"> <span style="color:#999">2000 a 2018</span><br>`;
-    div.innerHTML += `<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png" style="width:14px;vertical-align:middle;"> <span style="color:#999">2019 a Actualidad</span><br>`;
+    const div = L.DomUtil.create('div', 'info legend legend-box');
+    div.innerHTML += `<div class="legend-title">Marcadores por año de caída</div>`;
+    div.innerHTML += `<div class="legend-row"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png" class="legend-marker"> <span>Antes de 2000</span></div>`;
+    div.innerHTML += `<div class="legend-row"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png" class="legend-marker"> <span>2000 a 2018</span></div>`;
+    div.innerHTML += `<div class="legend-row"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png" class="legend-marker"> <span>2019 a Actualidad</span></div>`;
     return div;
   };
   leyendaPuntos.addTo(mapa);
@@ -139,13 +138,13 @@ function mostrarLeyendaPuntos() {
 function mostrarLeyendaCalor() {
   leyendaCalor = L.control({position: 'bottomright'});
   leyendaCalor.onAdd = function (map) {
-    const div = L.DomUtil.create('div', 'info legend');
+    const div = L.DomUtil.create('div', 'info legend legend-box');
     const grades = ['Bajo', 'Medio', 'Alto', 'Muy alto'];
     const colors = ['blue', 'lime', 'yellow', 'red'];
-    div.innerHTML += '<strong>Densidad de caídas</strong><br>';
+    div.innerHTML += '<div class="legend-title">Densidad de caídas</div>';
     for (let i = 0; i < grades.length; i++) {
       div.innerHTML +=
-        `<i style="background:${colors[i]};width:18px;height:18px;display:inline-block;margin-right:6px;"></i> ${grades[i]}<br>`;
+        `<div class="legend-row"><i class="legend-color" style="background:${colors[i]};"></i> <span>${grades[i]}</span></div>`;
     }
     return div;
   };
