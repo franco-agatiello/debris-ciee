@@ -1,48 +1,134 @@
-body, html {
-  height: 100%;
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  background: #f9f9f9;
 }
 
-#sidebar {
-  min-height: 100vh;
-  border-right: 1px solid #e0e0e0;
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 10px 0 0 0;
 }
 
-#sidebar h4 {
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
+.main-title {
+  text-align: center;
+  margin: 22px 0 12px 0;
+  font-size: 2.1rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  color: #2c3e50;
 }
 
-#filter-form label {
-  font-weight: 500;
-  margin-top: 0.5rem;
+.filtros-imagen-box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  background: #fff;
+  padding: 8px 10px;
+  border-radius: 9px;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.07);
+  font-size: 0.97rem;
+}
+
+.filtros select,
+.filtros input[type="date"] {
+  font-size: 0.97em;
+  padding: 2px 5px;
+  border-radius: 5px;
+  border: 1px solid #bcc;
+  background: #f6f6f6;
+  min-width: 96px;
+  height: 28px;
+}
+
+.filtros input[type="date"] {
+  width: 112px;
+}
+
+.modo-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 28px;
+  padding: 0 14px;
+  font-size: 0.97em;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.modo-btn:hover {
+  background: #217dbb;
+}
+
+.org-logo {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+.org-logo img {
+  width: 54px;
+  height: auto;
+  border-radius: 7px;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.07);
 }
 
 #map {
   width: 100%;
-  min-height: 100vh;
-  height: 100vh;
-  z-index: 1;
+  height: 570px;
+  margin: 0 auto;
+  border-radius: 13px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 20px rgba(44,62,80,0.08);
+  background: #dbeafe;
 }
 
-.btn-primary, .btn-secondary {
-  transition: background 0.2s;
+/* Leyendas mejoradas */
+.leaflet-control.legend-box {
+  background: #fff !important;
+  border-radius: 9px !important;
+  box-shadow: 0 2px 10px rgba(44,62,80,0.14) !important;
+  border: 1.2px solid #e7e7e7 !important;
+  padding: 11px 15px 8px 15px !important;
+  min-width: 160px;
+  font-size: 0.99em;
 }
 
-.btn-primary:focus, .btn-secondary:focus {
-  outline: none;
-  box-shadow: 0 0 0 0.15rem #007bff66;
+.legend-title {
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #2c3e50;
+  font-size: 1em;
 }
 
-@media (max-width: 768px) {
-  #sidebar {
-    min-height: unset;
-    border-right: none;
-    border-bottom: 1px solid #e0e0e0;
-  }
-  #map {
-    min-height: 60vh;
-    height: 60vh;
-  }
+.legend-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+  font-size: 0.97em;
+}
+.legend-row:last-child {
+  margin-bottom: 0;
+}
+
+.legend-marker {
+  width: 17px;
+  height: 27px;
+  margin-right: 7px;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  margin-right: 6px;
+  border: 1px solid #bbb;
+  vertical-align: middle;
 }
