@@ -1,41 +1,56 @@
-<!DOCTYPE html>
+<!DOCTYPE html>More actions
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Mapa de basura espacial</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Derbis Espaciales</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
   <link rel="stylesheet" href="style.css"/>
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
-  <script defer src="main.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1 class="main-title">Mapa de basura espacial</h1>
-    <div class="filtros-imagen-box">
-      <div class="filtros" id="filtros">
-        <select id="pais" title="País">
-          <option value="">Todos</option>
-        </select>
-        <select id="material" title="Material">
-          <option value="">Todos</option>
-        </select>
-        <select id="masa" title="Masa">
-          <option value="">Todas las masas</option>
-          <option value="0-10">0-10kg</option>
-          <option value="10-50">10-50kg</option>
-          <option value="50+">50kg+</option>
-        </select>
-        <input type="date" id="fecha-desde" title="Fecha desde" placeholder="Desde"/>
-        <input type="date" id="fecha-hasta" title="Fecha hasta" placeholder="Hasta"/>
-        <button id="modo-puntos" class="modo-btn">Puntos</button>
-        <button id="modo-calor" class="modo-btn">Heatmap</button>
-      </div>
-      <div class="org-logo">
-        <img src="logo.png" alt="Logo organización" />
-      </div>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar de Filtros -->
+      <aside class="col-md-3 p-3 bg-light" id="sidebar">
+        <h4>Filtros</h4>
+        <form id="filter-form">
+          <!-- País -->
+          <label>País de origen:</label>
+          <select class="form-select mb-2" id="pais"></select>
+          <!-- Material -->
+          <label>Material principal:</label>
+          <select class="form-select mb-2" id="material"></select>
+          <!-- Masa -->
+          <label>Masa de caída:</label>
+          <select class="form-select mb-2" id="masa">
+            <option value="">Todos</option>
+            <option value="0-10">0-10 kg</option>
+            <option value="10-50">10-50 kg</option>
+            <option value="50+">más de 50 kg</option>
+          </select>
+          <!-- Fechas -->
+          <label>Fecha desde:</label>
+          <input type="date" class="form-control mb-2" id="fecha-desde"/>
+          <label>Fecha hasta:</label>
+          <input type="date" class="form-control mb-2" id="fecha-hasta"/>
+        </form>
+        <div class="mt-4">
+          <button type="button" class="btn btn-primary w-100" id="modo-puntos">Modo Puntos</button>
+          <button type="button" class="btn btn-secondary w-100 mt-2" id="modo-calor">Mapa de Calor</button>
+        </div>
+      </aside>
+      <!-- Mapa -->
+      <main class="col-md-9 p-0">
+        <div id="map" style="height: 100vh;"></div>
+      </main>
     </div>
-    <div id="map"></div>
   </div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+  <script src="main.js"></script>
 </body>
 </html>
