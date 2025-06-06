@@ -91,14 +91,16 @@ function actualizarMapa() {
   if (modo === "puntos") {
     capaPuntos = L.layerGroup();
     datosFiltrados.forEach(d => {
+      const popupContenido = `
+        <strong>${d.nombre}</strong><br>
+        País: ${d.pais}<br>
+        Masa caída: ${d.tamano_caida_kg} kg<br>
+        Material: ${d.material_principal}<br>
+        Fecha: ${d.fecha}<br>
+        ${d.imagen ? `<img src="${d.imagen}" alt="${d.nombre}" style="width:100%;max-width:220px;margin-top:8px;border-radius:6px;">` : ''}
+      `;
       const marker = L.marker([d.lugar_caida.lat, d.lugar_caida.lon], {icon: marcadorPorFecha(d.fecha)})
-        .bindPopup(`
-          <strong>${d.nombre}</strong><br>
-          País: ${d.pais}<br>
-          Masa caída: ${d.tamano_caida_kg} kg<br>
-          Material: ${d.material_principal}<br>
-          Fecha: ${d.fecha}
-        `);
+        .bindPopup(popupContenido);
       capaPuntos.addLayer(marker);
     });
     capaPuntos.addTo(mapa);
