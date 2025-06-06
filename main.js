@@ -33,7 +33,6 @@ function obtenerFiltros() {
 }
 
 function filtrarDatos() {
-  if (!Array.isArray(derbis)) return [];
   const {pais, material, masa, fechaDesde, fechaHasta} = obtenerFiltros();
   return derbis.filter(d => {
     // País
