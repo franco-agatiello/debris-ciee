@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
   <title>Mapa de Caídas de Satélites</title>
-  <meta charset="utf-8" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    #map { height: 500px; width: 100%; }
+    body { font-family: Arial, sans-serif; margin: 0; }
+    #map { height: 90vh; width: 100vw; }
   </style>
 </head>
 <body>
@@ -13,25 +14,48 @@
   <div id="map"></div>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
-    // Inicializar el mapa
-    var map = L.map('map').setView([0, 0], 2); // Centro del mundo
+    // Inicializar el mapa centrado en el mundo
+    var map = L.map('map').setView([0,0], 2);
 
-    // Cargar capa base
+    // Capa base de OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // Ejemplo de datos de caídas
+    // Datos de ejemplo de caída de satélites
     var caidas = [
-      {nombre: "Satélite A", pais: "USA", tamaño: "Grande", coords: [40, -74], material: "Aluminio"},
-      {nombre: "Satélite B", pais: "China", tamaño: "Pequeño", coords: [35, 105], material: "Titanio"},
+      {
+        nombre: "Satélite A",
+        pais: "USA",
+        tamaño_inicial: "Grande",
+        tamaño_caida: "Mediano",
+        coords: [40, -74],
+        lugar: "Nueva York",
+        material: "Aluminio"
+      },
+      {
+        nombre: "Satélite B",
+        pais: "China",
+        tamaño_inicial: "Mediano",
+        tamaño_caida: "Pequeño",
+        coords: [35, 105],
+        lugar: "China Central",
+        material: "Titanio"
+      }
     ];
 
-    // Mostrar puntos en el mapa
-    caidas.forEach(function(caida) {
-      L.marker(caida.coords)
+    // Mostrar cada caída como un marcador
+    caidas.forEach(function(sat) {
+      L.marker(sat.coords)
         .addTo(map)
-        .bindPopup(`<b>${caida.nombre}</b><br>Pais: ${caida.pais}<br>Tamaño: ${caida.tamaño}<br>Material: ${caida.material}`);
+        .bindPopup(
+          `<b>${sat.nombre}</b><br>
+            País: ${sat.pais}<br>
+            Tamaño Inicial: ${sat.tamaño_inicial}<br>
+            Tamaño de Caída: ${sat.tamaño_caida}<br>
+            Lugar: ${sat.lugar}<br>
+            Material: ${sat.material}`
+        );
     });
   </script>
 </body>
