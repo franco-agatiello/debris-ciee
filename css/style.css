@@ -1,55 +1,70 @@
-/* style.css */
-
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   display: flex;
   overflow: hidden;
+  background: #e6ecf1;
 }
 
 #sidebar {
-  width: 300px;
-  background: #f4f4f4;
-  padding: 20px;
+  width: 320px;
+  background: #fff;
+  padding: 30px 24px 24px 24px;
   box-sizing: border-box;
   overflow-y: auto;
-  border-right: 1px solid #ccc;
+  border-right: 2px solid #e0e0e0;
+  height: 100vh;
+  box-shadow: 2px 0 8px rgba(18,42,66,0.05);
 }
 
 #sidebar h2 {
   margin-top: 0;
+  color: #0078A8;
+  font-size: 1.4em;
+  margin-bottom: 1rem;
 }
 
 #sidebar label {
   display: block;
-  margin-top: 15px;
+  margin-top: 20px;
+  margin-bottom: 4px;
   font-weight: bold;
+  color: #34495e;
 }
 
-#sidebar select,
-#sidebar input[type="number"] {
+#sidebar select {
   width: 100%;
-  padding: 6px 8px;
-  margin-top: 5px;
+  padding: 8px 12px;
   box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #d2dae3;
+  border-radius: 5px;
+  background: #f5f8fa;
+  font-size: 1em;
+}
+
+.botones {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
 }
 
 #sidebar button {
-  margin-top: 20px;
-  padding: 10px;
-  width: 100%;
+  flex: 1;
+  padding: 12px 0;
   background-color: #0078A8;
   border: none;
   color: white;
-  font-size: 16px;
+  font-size: 1em;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.18s;
+  outline: none;
 }
 
+#sidebar button.activo,
 #sidebar button:hover {
   background-color: #005f73;
 }
@@ -57,4 +72,10 @@ body, html {
 #map {
   flex: 1;
   height: 100vh;
+}
+
+@media (max-width: 900px) {
+  #sidebar { width: 100vw; height: auto; border-right: none; border-bottom: 2px solid #e0e0e0; }
+  #map { height: 60vh; }
+  body, html { flex-direction: column; }
 }
