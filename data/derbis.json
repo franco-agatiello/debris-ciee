@@ -6,7 +6,7 @@
     "material_principal": "Titanio",
     "fecha": "1978-01-24",
     "lugar_caida": {"lat": 62.0, "lon": -120.0},
-    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Cosmos_954.jpg/320px-Cosmos_954.jpg"
+    "imagen": "img/240628-space-debris-2-ew-1216p-753a6f.webp"
   },
   {
     "nombre": "Skylab",
@@ -15,7 +15,7 @@
     "material_principal": "Aluminio",
     "fecha": "1979-07-11",
     "lugar_caida": {"lat": -31.0, "lon": 122.0},
-    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Skylab_and_Earth_spacelab_3.jpg/320px-Skylab_and_Earth_spacelab_3.jpg"
+    "imagen": "img/Debris_landed_in_Texas.jpg"
   },
   {
     "nombre": "Salyut 7",
@@ -24,7 +24,7 @@
     "material_principal": "Aleación de aluminio",
     "fecha": "1991-02-07",
     "lugar_caida": {"lat": -34.0, "lon": -53.0},
-    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Salyut_7_%28Soviet_space_station%29.jpg/320px-Salyut_7_%28Soviet_space_station%29.jpg"
+    "imagen": "img/ISS.jpg"
   },
   {
     "nombre": "Mir",
