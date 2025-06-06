@@ -1,96 +1,48 @@
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
+body, html {
+  height: 100%;
   margin: 0;
   padding: 0;
-  background: #f8f9fa;
 }
 
-h1 {
-  text-align: center;
-  margin: 16px 0 8px 0;
-  color: #222;
-  letter-spacing: 1px;
+#sidebar {
+  min-height: 100vh;
+  border-right: 1px solid #e0e0e0;
 }
 
-#controles {
-  padding: 10px 16px 8px 16px;
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  justify-content: center;
+#sidebar h4 {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-#controles label {
-  font-size: 14px;
-  color: #444;
-  margin-right: 2px;
-}
-
-#controles select,
-#controles input[type="date"] {
-  font-size: 14px;
-  border: 1px solid #bbb;
-  border-radius: 4px;
-  padding: 2px 8px;
-  margin-right: 6px;
-  background: #fff;
-}
-
-#controles button {
-  background: #1976d2;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 5px 14px;
-  font-size: 14px;
-  margin-left: 8px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-#controles button:hover {
-  background: #125ea9;
+#filter-form label {
+  font-weight: 500;
+  margin-top: 0.5rem;
 }
 
 #map {
-  width: 100vw;
-  height: 82vh;
-  min-height: 500px;
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  z-index: 1;
 }
 
-/* Leyenda */
-.info.legend {
-  background: rgba(255,255,255,0.97);
-  padding: 8px 14px 8px 12px;
-  border-radius: 6px;
-  font-size: 14px;
-  color: #222;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.09);
-  line-height: 18px;
-}
-.info.legend strong {
-  display: block;
-  margin-bottom: 4px;
-  font-size: 15px;
-}
-.info.legend i {
-  border-radius: 3px;
-  margin-bottom: 2px;
-  border: 1px solid #bbb;
-  vertical-align: middle;
+.btn-primary, .btn-secondary {
+  transition: background 0.2s;
 }
 
-/* Responsive */
-@media (max-width: 730px) {
-  #controles {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 3px 0;
+.btn-primary:focus, .btn-secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.15rem #007bff66;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    min-height: unset;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
   }
   #map {
-    height: 67vh;
-    min-height: 350px;
+    min-height: 60vh;
+    height: 60vh;
   }
 }
