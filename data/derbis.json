@@ -1,0 +1,20 @@
+[
+  {
+    "nombre": "Satélite A",
+    "pais": "Argentina",
+    "tamano_inicial_kg": 1200,
+    "tamano_caida_kg": 50,
+    "lugar_caida": {"lat": -34.6, "lon": -58.4},
+    "material_principal": "Aluminio",
+    "fecha": "2024-05-01"
+  },
+  {
+    "nombre": "Satélite B",
+    "pais": "Estados Unidos",
+    "tamano_inicial_kg": 800,
+    "tamano_caida_kg": 5,
+    "lugar_caida": {"lat": 37.7, "lon": -122.4},
+    "material_principal": "Titanio",
+    "fecha": "2024-03-15"
+  }
+]
