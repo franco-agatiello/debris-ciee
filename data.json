@@ -1,0 +1,29 @@
+[
+  {
+    "nombre": "Satélite A",
+    "pais": "EEUU",
+    "tamano_inicial_kg": 1200,
+    "tamano_caida_kg": 8,
+    "lugar_caida": {"lat": -20.123, "lon": -47.234},
+    "material_principal": "Aluminio",
+    "fecha": "2023-07-12"
+  },
+  {
+    "nombre": "Satélite B",
+    "pais": "Rusia",
+    "tamano_inicial_kg": 950,
+    "tamano_caida_kg": 55,
+    "lugar_caida": {"lat": 38.123, "lon": 13.234},
+    "material_principal": "Titanio",
+    "fecha": "2022-11-08"
+  },
+  {
+    "nombre": "Satélite C",
+    "pais": "China",
+    "tamano_inicial_kg": 600,
+    "tamano_caida_kg": 25,
+    "lugar_caida": {"lat": 34.5, "lon": 112.3},
+    "material_principal": "Acero",
+    "fecha": "2021-06-03"
+  }
+]
