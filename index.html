@@ -3,62 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title>Mapa de basura espacial</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body { margin:0; font-family: sans-serif; background: #f2f2f2; }
-    #header { background: #222; color: #fff; padding: 1em 0; text-align: center; font-size: 2em; letter-spacing:1px; font-weight: bold;}
-    #filtros { background: #fff; border-radius: 8px; margin: 18px auto 8px auto; padding: 12px 20px; max-width: 700px; box-shadow: 0 2px 12px #0001; }
-    #org-logo { display: block; margin: 14px auto 3px auto; max-width: 140px;}
-    #autor { margin: 4px auto 18px auto; text-align: center; font-size: 0.98em; color: #333; }
-    #autor a { color: #2060df; text-decoration: none; }
-    #autor a:hover { text-decoration: underline; }
-    #map { height: 550px; margin: 0 auto; border-radius: 10px; box-shadow: 0 3px 18px #0002; max-width: 1100px;}
-    .legend, .info.legend { 
-      background: #fff; 
-      padding: 10px 16px;
-      border-radius: 8px; 
-      box-shadow: 0 2px 10px #0002;
-      border: 1px solid #ccc; 
-      font-size: 1em;
-      color: #333;
-      line-height: 1.7em;
-      min-width: 180px;
-    }
-    .legend strong { font-size: 1.1em; }
-    .legend i { border-radius: 4px; vertical-align: middle; margin-right: 6px;}
-    @media (max-width: 680px) {
-      #map { height: 320px }
-      #filtros { padding: 8px 6px; }
-      #autor { font-size: 0.92em }
-      .legend, .info.legend { min-width: 120px; font-size: 0.95em;}
-    }
-  </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  <script defer src="main.js"></script>
 </head>
 <body>
-  <div id="header">Mapa de basura espacial</div>
-  <div id="filtros">
-    <!-- Tus selects y filtros aquí -->
-    <select id="pais"></select>
-    <select id="material"></select>
-    <select id="masa">
-      <option value="">Masa</option>
-      <option value="0-10">0-10 kg</option>
-      <option value="10-50">10-50 kg</option>
-      <option value="50+">+50 kg</option>
-    </select>
-    Desde: <input type="date" id="fecha-desde">
-    Hasta: <input type="date" id="fecha-hasta">
-    <button id="modo-puntos">Puntos</button>
-    <button id="modo-calor">Heatmap</button>
+  <div class="container">
+    <h1 class="main-title">Mapa de basura espacial</h1>
+    <div class="filtros-imagen-box">
+      <div class="filtros" id="filtros">
+        <select id="pais" title="País">
+          <option value="">Todos</option>
+        </select>
+        <select id="material" title="Material">
+          <option value="">Todos</option>
+        </select>
+        <select id="masa" title="Masa">
+          <option value="">Todas las masas</option>
+          <option value="0-10">0-10kg</option>
+          <option value="10-50">10-50kg</option>
+          <option value="50+">50kg+</option>
+        </select>
+        <input type="date" id="fecha-desde" title="Fecha desde" placeholder="Desde"/>
+        <input type="date" id="fecha-hasta" title="Fecha hasta" placeholder="Hasta"/>
+        <button id="modo-puntos" class="modo-btn">Puntos</button>
+        <button id="modo-calor" class="modo-btn">Heatmap</button>
+      </div>
+      <div class="org-logo">
+        <img src="logo.png" alt="Logo organización" />
+      </div>
+    </div>
+    <div id="map"></div>
   </div>
-  <img id="org-logo" src="https://www.ciee.unlp.edu.ar/wp-content/uploads/sites/47/2023/08/Logo-CIEE-08-redimensionada-3.png alt="Logo organización"/>
-  <div id="autor">
-    &copy; 2025 <a href="https://www.ciee.unlp.edu.ar/" target="_blank">Centro Interdisciplinario de Estudios Espaciales</a>. Todos los derechos reservados.
-  </div>
-  <div id="map"></div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
-  <script src="main.js"></script>
 </body>
 </html>
