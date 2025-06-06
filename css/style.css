@@ -34,7 +34,8 @@ body, html {
   color: #34495e;
 }
 
-#sidebar select {
+#sidebar select,
+#sidebar input[type="date"] {
   width: 100%;
   padding: 8px 12px;
   box-sizing: border-box;
