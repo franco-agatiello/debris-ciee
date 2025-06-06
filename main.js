@@ -9,22 +9,55 @@ async function cargarDatos() {
 }
 
 function poblarFiltros() {
-  // Rellena selects de país/material con opciones únicas de los datos
-  // ...
+  // Rellenar selects de país y material con valores únicos
+  const paises = [...new Set(derbis.map(d => d.pais))].sort();
+  const materiales = [...new Set(derbis.map(d => d.material_principal))].sort();
+
+  const paisSelect = document.getElementById('pais');
+  const materialSelect = document.getElementById('material');
+
+  paisSelect.innerHTML = '<option value="">Todos</option>' +
+    paises.map(p => `<option value="${p}">${p}</option>`).join('');
+  materialSelect.innerHTML = '<option value="">Todos</option>' +
+    materiales.map(m => `<option value="${m}">${m}</option>`).join('');
 }
 
 function obtenerFiltros() {
-  // Lee los filtros del DOM y devuelve un objeto
+  return {
+    pais: document.getElementById('pais').value,
+    material: document.getElementById('material').value,
+    masa: document.getElementById('masa').value,
+    fechaDesde: document.getElementById('fecha-desde').value,
+    fechaHasta: document.getElementById('fecha-hasta').value
+  };
 }
 
 function filtrarDatos() {
-  // Devuelve los datos filtrados según los selects/inputs
+  if (!Array.isArray(derbis)) return [];
+  const {pais, material, masa, fechaDesde, fechaHasta} = obtenerFiltros();
+  return derbis.filter(d => {
+    // País
+    if (pais && d.pais !== pais) return false;
+    // Material
+    if (material && d.material_principal !== material) return false;
+    // Masa
+    if (masa) {
+      if (masa === "0-10" && !(d.tamano_caida_kg >= 0 && d.tamano_caida_kg <= 10)) return false;
+      if (masa === "10-50" && !(d.tamano_caida_kg > 10 && d.tamano_caida_kg <= 50)) return false;
+      if (masa === "50+" && !(d.tamano_caida_kg > 50)) return false;
+    }
+    // Fechas
+    if (fechaDesde && d.fecha < fechaDesde) return false;
+    if (fechaHasta && d.fecha > fechaHasta) return false;
+    return true;
+  });
 }
 
 function actualizarMapa() {
   const datosFiltrados = filtrarDatos();
   if (capaPuntos) capaPuntos.clearLayers();
   if (capaCalor) mapa.removeLayer(capaCalor);
+
   if (modo === "puntos") {
     capaPuntos = L.layerGroup();
     datosFiltrados.forEach(d => {
@@ -51,8 +84,15 @@ function initMapa() {
 }
 
 function listeners() {
-  // Listeners para los filtros y botones
-  // Al cambiar, llama a actualizarMapa()
+  document.getElementById('filter-form').addEventListener('change', actualizarMapa);
+  document.getElementById('modo-puntos').addEventListener('click', () => {
+    modo = "puntos";
+    actualizarMapa();
+  });
+  document.getElementById('modo-calor').addEventListener('click', () => {
+    modo = "calor";
+    actualizarMapa();
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
