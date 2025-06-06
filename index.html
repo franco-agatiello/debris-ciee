@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Dashboard de Derbis Espaciales</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS de Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
   <link rel="stylesheet" href="css/styles.css"/>
 </head>
@@ -30,13 +31,18 @@
     <label>Fecha hasta:
       <input type="date" id="filtroHasta">
     </label>
-    <button id="modoPuntos" class="modo-btn selected">Puntos</button>
-    <button id="modoCalor" class="modo-btn">Mapa de calor</button>
+    <div>
+      <button id="modoPuntos" class="modo-btn selected">Puntos</button>
+      <button id="modoCalor" class="modo-btn">Mapa de calor</button>
+    </div>
   </div>
   <div id="mapa"></div>
 
+  <!-- JS de Leaflet y Leaflet.heat desde CDN -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  <!-- Tu JS principal -->
   <script src="js/app.js"></script>
 </body>
+</html>
 </html>
