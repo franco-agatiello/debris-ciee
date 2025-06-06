@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Dashboard interactivo para visualizar derbis espaciales caídos en la Tierra.",
-  "homepage": "https://franco-agatiello.github.io/dashboard-derbis-espaciales",
+  "homepage": "https://franco-agatiello.github.io/derbis-ciee/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
