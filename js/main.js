@@ -1,5 +1,4 @@
-// Cargar el mapa
-const map = L.map('map').setView([0, 0], 2);
+const map = L.map('map').setView([20, 0], 2);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: 'Map data © OpenStreetMap contributors'
 }).addTo(map);
@@ -19,65 +18,83 @@ fetch('datos/datos.json')
 function llenarFiltros(data) {
   const paisSelect = document.getElementById('paisSelect');
   const materialSelect = document.getElementById('materialSelect');
-  const satSelect = document.getElementById('satSelect');
+  // Limpiar y volver a agregar la opción por defecto
+  paisSelect.innerHTML = '<option value="todos">Todos</option>';
+  materialSelect.innerHTML = '<option value="todos">Todos</option>';
+
   const paises = new Set();
   const materiales = new Set();
-  const sats = new Set();
 
   data.forEach(item => {
     paises.add(item.pais);
     materiales.add(item.material_principal);
-    sats.add(item.nombre);
   });
 
   paises.forEach(p => paisSelect.innerHTML += `<option value="${p}">${p}</option>`);
   materiales.forEach(m => materialSelect.innerHTML += `<option value="${m}">${m}</option>`);
-  sats.forEach(s => satSelect.innerHTML += `<option value="${s}">${s}</option>`);
+}
+
+function filtrarData() {
+  const pais = document.getElementById('paisSelect').value;
+  const mat = document.getElementById('materialSelect').value;
+  const rango = document.getElementById('rangoMasa').value;
+
+  return dataGlobal.filter(d => {
+    let ok = true;
+    if (pais !== 'todos') ok = ok && d.pais === pais;
+    if (mat !== 'todos') ok = ok && d.material_principal === mat;
+    if (rango !== 'todos') {
+      if (rango === '0-10') ok = ok && d.tamano_caida_kg >= 0 && d.tamano_caida_kg < 10;
+      if (rango === '10-50') ok = ok && d.tamano_caida_kg >= 10 && d.tamano_caida_kg <= 50;
+      if (rango === '50+') ok = ok && d.tamano_caida_kg > 50;
+    }
+    return ok;
+  });
 }
 
 function mostrarPuntos(data) {
+  if (heatLayer) map.removeLayer(heatLayer);
   markersLayer.clearLayers();
   data.forEach(item => {
     const marker = L.marker([item.lugar_caida.lat, item.lugar_caida.lon])
-      .bindPopup(`<b>${item.nombre}</b><br>${item.pais}<br>${item.material_principal}`);
+      .bindPopup(`
+        <b>${item.nombre}</b><br>
+        País: ${item.pais}<br>
+        Masa inicial: ${item.tamano_inicial_kg} kg<br>
+        Masa de caída: ${item.tamano_caida_kg} kg<br>
+        Material: ${item.material_principal}
+      `);
     markersLayer.addLayer(marker);
   });
 }
 
 function mostrarMapaCalor(data) {
-  if (heatLayer) {
-    map.removeLayer(heatLayer);
-  }
-  const puntos = data.map(d => [d.lugar_caida.lat, d.lugar_caida.lon, 1]);
-  heatLayer = L.heatLayer(puntos, { radius: 25 }).addTo(map);
-}
-
-function aplicarFiltros() {
-  const pais = document.getElementById('paisSelect').value;
-  const sat = document.getElementById('satSelect').value;
-  const mat = document.getElementById('materialSelect').value;
-  const tinMin = parseFloat(document.getElementById('tamanoInicial').value) || -Infinity;
-  const tinMax = parseFloat(document.getElementById('tamanoInicialMax').value) || Infinity;
-  const tcaMin = parseFloat(document.getElementById('tamanoCaida').value) || -Infinity;
-  const tcaMax = parseFloat(document.getElementById('tamanoCaidaMax').value) || Infinity;
-
-  const filtrado = dataGlobal.filter(d => {
-    return (pais === 'todos' || d.pais === pais) &&
-           (sat === 'todos' || d.nombre === sat) &&
-           (mat === 'todos' || d.material_principal === mat) &&
-           d.tamano_inicial_kg >= tinMin && d.tamano_inicial_kg <= tinMax &&
-           d.tamano_caida_kg >= tcaMin && d.tamano_caida_kg <= tcaMax;
-  });
-
-  mostrarPuntos(filtrado);
+  markersLayer.clearLayers();
   if (heatLayer) map.removeLayer(heatLayer);
+  const puntos = data.map(d => [d.lugar_caida.lat, d.lugar_caida.lon, 1]);
+  heatLayer = L.heatLayer(puntos, { radius: 30, blur: 20, maxZoom: 8 }).addTo(map);
 }
 
-// Eventos
+// Eventos de filtros y botones
+document.getElementById('paisSelect').addEventListener('change', actualizarVista);
+document.getElementById('materialSelect').addEventListener('change', actualizarVista);
+document.getElementById('rangoMasa').addEventListener('change', actualizarVista);
 
-document.getElementById('aplicarFiltros').addEventListener('click', aplicarFiltros);
-document.getElementById('verMapaCalor').addEventListener('click', () => {
-  aplicarFiltros();
-  mostrarMapaCalor(dataGlobal.filter(d => markersLayer.hasLayer(L.marker([d.lugar_caida.lat, d.lugar_caida.lon]))));
+document.getElementById('verPuntos').addEventListener('click', function() {
+  this.classList.add('activo');
+  document.getElementById('verMapaCalor').classList.remove('activo');
+  mostrarPuntos(filtrarData());
 });
-document.getElementById('verPuntos').addEventListener('click', aplicarFiltros);
+document.getElementById('verMapaCalor').addEventListener('click', function() {
+  this.classList.add('activo');
+  document.getElementById('verPuntos').classList.remove('activo');
+  mostrarMapaCalor(filtrarData());
+});
+
+function actualizarVista() {
+  if (document.getElementById('verPuntos').classList.contains('activo')) {
+    mostrarPuntos(filtrarData());
+  } else {
+    mostrarMapaCalor(filtrarData());
+  }
+}
