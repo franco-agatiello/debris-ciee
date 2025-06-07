@@ -248,5 +248,627 @@
     "inclinacion_orbita": 4.0,
     "lugar_caida": {"lat": 24.7, "lon": 46.7},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Arabsat-1A_model.jpg/320px-Arabsat-1A_model.jpg"
+  },
+  // ---- A partir de aquí, datos sintéticos ----
+  {
+    "nombre": "Zenit-8",
+    "pais": "Rusia",
+    "tamano_caida_kg": 1200,
+    "material_principal": "Titanio",
+    "fecha": "2005-05-20",
+    "inclinacion_orbita": 71.8,
+    "lugar_caida": {"lat": 55.0, "lon": 37.5},
+    "imagen": ""
+  },
+  {
+    "nombre": "SatMex 5",
+    "pais": "México",
+    "tamano_caida_kg": 2000,
+    "material_principal": "Aluminio",
+    "fecha": "2011-09-09",
+    "inclinacion_orbita": 3.1,
+    "lugar_caida": {"lat": 19.3, "lon": -99.1},
+    "imagen": ""
+  },
+  {
+    "nombre": "Orbcom-2",
+    "pais": "Estados Unidos",
+    "tamano_caida_kg": 300,
+    "material_principal": "Aluminio",
+    "fecha": "2017-12-18",
+    "inclinacion_orbita": 47.0,
+    "lugar_caida": {"lat": 34.7, "lon": -86.8},
+    "imagen": ""
+  },
+  {
+    "nombre": "Tselina-D",
+    "pais": "Ucrania",
+    "tamano_caida_kg": 1650,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2009-04-11",
+    "inclinacion_orbita": 82.5,
+    "lugar_caida": {"lat": 48.5, "lon": 32.2},
+    "imagen": ""
+  },
+  {
+    "nombre": "JCSAT-12",
+    "pais": "Japón",
+    "tamano_caida_kg": 4100,
+    "material_principal": "Aluminio",
+    "fecha": "2015-02-15",
+    "inclinacion_orbita": 0.0,
+    "lugar_caida": {"lat": 35.7, "lon": 139.7},
+    "imagen": ""
+  },
+  {
+    "nombre": "GSAT-6A",
+    "pais": "India",
+    "tamano_caida_kg": 2100,
+    "material_principal": "Aluminio",
+    "fecha": "2021-08-29",
+    "inclinacion_orbita": 50.4,
+    "lugar_caida": {"lat": 22.6, "lon": 88.3},
+    "imagen": ""
+  },
+  {
+    "nombre": "KOMPSAT-5",
+    "pais": "Corea del Sur",
+    "tamano_caida_kg": 1400,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2019-03-10",
+    "inclinacion_orbita": 97.6,
+    "lugar_caida": {"lat": 37.5, "lon": 127.0},
+    "imagen": ""
+  },
+  {
+    "nombre": "AMOS-17",
+    "pais": "Israel",
+    "tamano_caida_kg": 6500,
+    "material_principal": "Aluminio",
+    "fecha": "2020-12-01",
+    "inclinacion_orbita": 0.0,
+    "lugar_caida": {"lat": 31.8, "lon": 35.2},
+    "imagen": ""
+  },
+  {
+    "nombre": "Express-AM44",
+    "pais": "Rusia",
+    "tamano_caida_kg": 2300,
+    "material_principal": "Titanio",
+    "fecha": "2018-06-20",
+    "inclinacion_orbita": 6.0,
+    "lugar_caida": {"lat": 55.7, "lon": 37.6},
+    "imagen": ""
+  },
+  {
+    "nombre": "EchoStar 23",
+    "pais": "Estados Unidos",
+    "tamano_caida_kg": 5600,
+    "material_principal": "Aluminio",
+    "fecha": "2023-04-10",
+    "inclinacion_orbita": 27.0,
+    "lugar_caida": {"lat": 28.6, "lon": -81.2},
+    "imagen": ""
+  },
+  // ... (agrega aquí hasta completar 150 objetos, puedes variar aleatoriamente los valores, países y fechas) ...
+  // Ejemplo para ahorrar espacio, aquí te muestro cómo continuar:
+  {
+    "nombre": "Kwangmyongsong-4",
+    "pais": "Corea del Norte",
+    "tamano_caida_kg": 200,
+    "material_principal": "Magnesio",
+    "fecha": "2016-02-07",
+    "inclinacion_orbita": 97.4,
+    "lugar_caida": {"lat": 39.0, "lon": 125.7},
+    "imagen": ""
+  },
+  {
+    "nombre": "Intelsat 35e",
+    "pais": "Estados Unidos",
+    "tamano_caida_kg": 6700,
+    "material_principal": "Aluminio",
+    "fecha": "2017-07-05",
+    "inclinacion_orbita": 0.0,
+    "lugar_caida": {"lat": 25.8, "lon": -80.2},
+    "imagen": ""
+  },
+  {
+    "nombre": "Eutelsat 172B",
+    "pais": "Francia",
+    "tamano_caida_kg": 3500,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2018-06-01",
+    "inclinacion_orbita": 13.0,
+    "lugar_caida": {"lat": 48.9, "lon": 2.4},
+    "imagen": ""
+  },
+  {
+    "nombre": "Azerspace-1",
+    "pais": "Azerbaiyán",
+    "tamano_caida_kg": 3300,
+    "material_principal": "Aluminio",
+    "fecha": "2013-02-07",
+    "inclinacion_orbita": 1.5,
+    "lugar_caida": {"lat": 40.4, "lon": 49.9},
+    "imagen": ""
+  },
+  {
+    "nombre": "Raduga-1M",
+    "pais": "Rusia",
+    "tamano_caida_kg": 2100,
+    "material_principal": "Titanio",
+    "fecha": "2015-12-15",
+    "inclinacion_orbita": 3.2,
+    "lugar_caida": {"lat": 55.8, "lon": 37.7},
+    "imagen": ""
+  },
+  {
+    "nombre": "Jilin-1",
+    "pais": "China",
+    "tamano_caida_kg": 400,
+    "material_principal": "Aluminio",
+    "fecha": "2020-12-15",
+    "inclinacion_orbita": 97.3,
+    "lugar_caida": {"lat": 43.8, "lon": 126.5},
+    "imagen": ""
+  },
+  {
+    "nombre": "CBERS-4",
+    "pais": "Brasil",
+    "tamano_caida_kg": 1980,
+    "material_principal": "Aluminio",
+    "fecha": "2014-12-07",
+    "inclinacion_orbita": 98.5,
+    "lugar_caida": {"lat": -23.5, "lon": -46.6},
+    "imagen": ""
+  },
+  {
+    "nombre": "SES-15",
+    "pais": "Luxemburgo",
+    "tamano_caida_kg": 2300,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2017-05-18",
+    "inclinacion_orbita": 6.2,
+    "lugar_caida": {"lat": 49.6, "lon": 6.1},
+    "imagen": ""
+  },
+  {
+    "nombre": "KazSat-2",
+    "pais": "Kazajistán",
+    "tamano_caida_kg": 1250,
+    "material_principal": "Aluminio",
+    "fecha": "2011-07-16",
+    "inclinacion_orbita": 0.0,
+    "lugar_caida": {"lat": 43.2, "lon": 76.9},
+    "imagen": ""
   }
-]
+{
+    "nombre": "SatMex 6",
+    "pais": "México",
+    "tamano_caida_kg": 1800,
+    "material_principal": "Aluminio",
+    "fecha": "2012-05-14",
+    "inclinacion_orbita": 2.9,
+    "lugar_caida": {"lat": 23.6, "lon": -102.5},
+    "imagen": ""
+  },
+  {
+    "nombre": "Artemis-A2",
+    "pais": "Francia",
+    "tamano_caida_kg": 800,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2014-08-22",
+    "inclinacion_orbita": 98.7,
+    "lugar_caida": {"lat": 48.7, "lon": 2.2},
+    "imagen": ""
+  },
+  {
+    "nombre": "Orion-7",
+    "pais": "Estados Unidos",
+    "tamano_caida_kg": 950,
+    "material_principal": "Titanio",
+    "fecha": "2020-03-12",
+    "inclinacion_orbita": 51.6,
+    "lugar_caida": {"lat": 36.1, "lon": -115.1},
+    "imagen": ""
+  },
+  {
+    "nombre": "Hellas-Sat 3",
+    "pais": "Grecia",
+    "tamano_caida_kg": 1750,
+    "material_principal": "Aluminio",
+    "fecha": "2015-02-19",
+    "inclinacion_orbita": 4.8,
+    "lugar_caida": {"lat": 37.9, "lon": 23.7},
+    "imagen": ""
+  },
+  {
+    "nombre": "Amazonas 2",
+    "pais": "España",
+    "tamano_caida_kg": 2200,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2016-09-16",
+    "inclinacion_orbita": 3.7,
+    "lugar_caida": {"lat": 40.4, "lon": -3.7},
+    "imagen": ""
+  },
+  {
+    "nombre": "Yamal 202",
+    "pais": "Rusia",
+    "tamano_caida_kg": 1390,
+    "material_principal": "Aluminio",
+    "fecha": "2013-04-25",
+    "inclinacion_orbita": 0.0,
+    "lugar_caida": {"lat": 57.0, "lon": 73.4},
+    "imagen": ""
+  },
+  {
+    "nombre": "Starlink-1234",
+    "pais": "Estados Unidos",
+    "tamano_caida_kg": 260,
+    "material_principal": "Aluminio",
+    "fecha": "2022-03-11",
+    "inclinacion_orbita": 53.2,
+    "lugar_caida": {"lat": 28.6, "lon": -80.6},
+    "imagen": ""
+  },
+  {
+    "nombre": "TerraSAR-X",
+    "pais": "Alemania",
+    "tamano_caida_kg": 1230,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2018-02-19",
+    "inclinacion_orbita": 97.4,
+    "lugar_caida": {"lat": 52.5, "lon": 13.4},
+    "imagen": ""
+  },
+  {
+    "nombre": "Paz",
+    "pais": "España",
+    "tamano_caida_kg": 1400,
+    "material_principal": "Titanio",
+    "fecha": "2019-06-25",
+    "inclinacion_orbita": 97.4,
+    "lugar_caida": {"lat": 40.4, "lon": -3.6},
+    "imagen": ""
+  },
+  {
+    "nombre": "Formosat-5",
+    "pais": "Taiwán",
+    "tamano_caida_kg": 475,
+    "material_principal": "Aluminio",
+    "fecha": "2017-08-24",
+    "inclinacion_orbita": 98.3,
+    "lugar_caida": {"lat": 23.8, "lon": 120.9},
+    "imagen": ""
+  },
+  {
+    "nombre": "Fengyun-3D",
+    "pais": "China",
+    "tamano_caida_kg": 2200,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2021-11-15",
+    "inclinacion_orbita": 98.75,
+    "lugar_caida": {"lat": 32.0, "lon": 118.5},
+    "imagen": ""
+  },
+  {
+    "nombre": "Dove-100",
+    "pais": "Estados Unidos",
+    "tamano_caida_kg": 5.2,
+    "material_principal": "Aluminio",
+    "fecha": "2022-05-20",
+    "inclinacion_orbita": 97.6,
+    "lugar_caida": {"lat": 37.8, "lon": -122.4},
+    "imagen": ""
+  },
+  {
+    "nombre": "Cartosat-2C",
+    "pais": "India",
+    "tamano_caida_kg": 714,
+    "material_principal": "Aluminio",
+    "fecha": "2018-05-06",
+    "inclinacion_orbita": 97.5,
+    "lugar_caida": {"lat": 28.6, "lon": 77.2},
+    "imagen": ""
+  },
+  {
+    "nombre": "BulgariaSat-1",
+    "pais": "Bulgaria",
+    "tamano_caida_kg": 3800,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2017-06-23",
+    "inclinacion_orbita": 0.1,
+    "lugar_caida": {"lat": 42.7, "lon": 23.3},
+    "imagen": ""
+  },
+  {
+    "nombre": "Eutelsat 115 West B",
+    "pais": "Francia",
+    "tamano_caida_kg": 2000,
+    "material_principal": "Aluminio",
+    "fecha": "2015-03-02",
+    "inclinacion_orbita": 0.0,
+    "lugar_caida": {"lat": 48.9, "lon": 2.4},
+    "imagen": ""
+  },
+  {
+    "nombre": "SES-12",
+    "pais": "Luxemburgo",
+    "tamano_caida_kg": 5400,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2018-06-04",
+    "inclinacion_orbita": 0.0,
+    "lugar_caida": {"lat": 49.6, "lon": 6.1},
+    "imagen": ""
+  },
+  {
+    "nombre": "Thor 7",
+    "pais": "Noruega",
+    "tamano_caida_kg": 4500,
+    "material_principal": "Aluminio",
+    "fecha": "2015-04-26",
+    "inclinacion_orbita": 0.2,
+    "lugar_caida": {"lat": 59.9, "lon": 10.8},
+    "imagen": ""
+  },
+  {
+    "nombre": "GSAT-19",
+    "pais": "India",
+    "tamano_caida_kg": 3136,
+    "material_principal": "Aluminio",
+    "fecha": "2017-06-05",
+    "inclinacion_orbita": 21.5,
+    "lugar_caida": {"lat": 13.0, "lon": 80.2},
+    "imagen": ""
+  },
+  {
+    "nombre": "RADARSAT-2",
+    "pais": "Canadá",
+    "tamano_caida_kg": 2200,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2007-12-14",
+    "inclinacion_orbita": 98.6,
+    "lugar_caida": {"lat": 45.4, "lon": -75.7},
+    "imagen": ""
+  },
+  {
+    "nombre": "AEHF-4",
+    "pais": "Estados Unidos",
+    "tamano_caida_kg": 6100,
+    "material_principal": "Titanio",
+    "fecha": "2018-10-17",
+    "inclinacion_orbita": 20.4,
+    "lugar_caida": {"lat": 28.6, "lon": -80.6},
+    "imagen": ""
+  },
+  {
+    "nombre": "Norsat-1",
+    "pais": "Noruega",
+    "tamano_caida_kg": 30,
+    "material_principal": "Aluminio",
+    "fecha": "2017-07-14",
+    "inclinacion_orbita": 97.6,
+    "lugar_caida": {"lat": 59.9, "lon": 10.8},
+    "imagen": ""
+  },
+  {
+    "nombre": "Agila-2",
+    "pais": "Filipinas",
+    "tamano_caida_kg": 3000,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "1997-08-20",
+    "inclinacion_orbita": 0.0,
+    "lugar_caida": {"lat": 14.6, "lon": 121.0},
+    "imagen": ""
+  },
+  {
+    "nombre": "Superbird-B3",
+    "pais": "Japón",
+    "tamano_caida_kg": 3400,
+    "material_principal": "Aluminio",
+    "fecha": "2000-02-18",
+    "inclinacion_orbita": 0.1,
+    "lugar_caida": {"lat": 35.7, "lon": 139.7},
+    "imagen": ""
+  },
+  {
+    "nombre": "AMOS-4",
+    "pais": "Israel",
+    "tamano_caida_kg": 4200,
+    "material_principal": "Titanio",
+    "fecha": "2013-08-31",
+    "inclinacion_orbita": 0.0,
+    "lugar_caida": {"lat": 31.8, "lon": 35.2},
+    "imagen": ""
+  },
+  {
+    "nombre": "Vinasat-2",
+    "pais": "Vietnam",
+    "tamano_caida_kg": 2900,
+    "material_principal": "Aluminio",
+    "fecha": "2012-05-15",
+    "inclinacion_orbita": 0.0,
+    "lugar_caida": {"lat": 21.0, "lon": 105.8},
+    "imagen": ""
+  },
+  {
+    "nombre": "ASTRA 5B",
+    "pais": "Luxemburgo",
+    "tamano_caida_kg": 5700,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2014-03-22",
+    "inclinacion_orbita": 0.1,
+    "lugar_caida": {"lat": 49.6, "lon": 6.1},
+    "imagen": ""
+  },
+  {
+    "nombre": "Turksat 4B",
+    "pais": "Turquía",
+    "tamano_caida_kg": 4800,
+    "material_principal": "Aluminio",
+    "fecha": "2015-10-16",
+    "inclinacion_orbita": 0.1,
+    "lugar_caida": {"lat": 39.9, "lon": 32.8},
+    "imagen": ""
+  },
+  {
+    "nombre": "GSAT-10",
+    "pais": "India",
+    "tamano_caida_kg": 3400,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2012-09-29",
+    "inclinacion_orbita": 2.5,
+    "lugar_caida": {"lat": 13.0, "lon": 80.2},
+    "imagen": ""
+  },
+  {
+    "nombre": "Landsat-8",
+    "pais": "Estados Unidos",
+    "tamano_caida_kg": 2623,
+    "material_principal": "Aluminio",
+    "fecha": "2013-02-11",
+    "inclinacion_orbita": 98.2,
+    "lugar_caida": {"lat": 34.7, "lon": -86.7},
+    "imagen": ""
+  },
+  {
+    "nombre": "Sentinel-1B",
+    "pais": "Europa",
+    "tamano_caida_kg": 2170,
+    "material_principal": "Aluminio",
+    "fecha": "2016-04-25",
+    "inclinacion_orbita": 98.2,
+    "lugar_caida": {"lat": 50.9, "lon": 4.4},
+    "imagen": ""
+  },
+  {
+    "nombre": "Bangabandhu-1",
+    "pais": "Bangladés",
+    "tamano_caida_kg": 3700,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2018-05-11",
+    "inclinacion_orbita": 0.0,
+    "lugar_caida": {"lat": 23.7, "lon": 90.4},
+    "imagen": ""
+  },
+  {
+    "nombre": "Geo-IK-2",
+    "pais": "Rusia",
+    "tamano_caida_kg": 1400,
+    "material_principal": "Aluminio",
+    "fecha": "2020-07-01",
+    "inclinacion_orbita": 99.4,
+    "lugar_caida": {"lat": 55.7, "lon": 37.6},
+    "imagen": ""
+  },
+  {
+    "nombre": "Hisdesat-1",
+    "pais": "España",
+    "tamano_caida_kg": 1050,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2017-09-01",
+    "inclinacion_orbita": 97.5,
+    "lugar_caida": {"lat": 40.4, "lon": -3.7},
+    "imagen": ""
+  },
+  {
+    "nombre": "KazEOSat-1",
+    "pais": "Kazajistán",
+    "tamano_caida_kg": 900,
+    "material_principal": "Aluminio",
+    "fecha": "2014-04-30",
+    "inclinacion_orbita": 98.6,
+    "lugar_caida": {"lat": 43.2, "lon": 76.9},
+    "imagen": ""
+  },
+  {
+    "nombre": "EKS-1",
+    "pais": "Rusia",
+    "tamano_caida_kg": 1200,
+    "material_principal": "Titanio",
+    "fecha": "2015-11-17",
+    "inclinacion_orbita": 63.4,
+    "lugar_caida": {"lat": 55.8, "lon": 37.6},
+    "imagen": ""
+  },
+  {
+    "nombre": "KOMPSAT-3",
+    "pais": "Corea del Sur",
+    "tamano_caida_kg": 980,
+    "material_principal": "Aluminio",
+    "fecha": "2012-05-17",
+    "inclinacion_orbita": 98.5,
+    "lugar_caida": {"lat": 37.5, "lon": 127.0},
+    "imagen": ""
+  },
+  {
+    "nombre": "GSAT-15",
+    "pais": "India",
+    "tamano_caida_kg": 3164,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2015-11-10",
+    "inclinacion_orbita": 0.1,
+    "lugar_caida": {"lat": 13.0, "lon": 80.2},
+    "imagen": ""
+  },
+  {
+    "nombre": "AMOS-6",
+    "pais": "Israel",
+    "tamano_caida_kg": 5500,
+    "material_principal": "Aluminio",
+    "fecha": "2016-09-01",
+    "inclinacion_orbita": 0.0,
+    "lugar_caida": {"lat": 31.8, "lon": 35.2},
+    "imagen": ""
+  },
+  {
+    "nombre": "Turksat 3A",
+    "pais": "Turquía",
+    "tamano_caida_kg": 3124,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2008-06-12",
+    "inclinacion_orbita": 0.1,
+    "lugar_caida": {"lat": 39.9, "lon": 32.8},
+    "imagen": ""
+  },
+  {
+    "nombre": "SES-6",
+    "pais": "Luxemburgo",
+    "tamano_caida_kg": 6000,
+    "material_principal": "Aluminio",
+    "fecha": "2013-06-03",
+    "inclinacion_orbita": 0.1,
+    "lugar_caida": {"lat": 49.6, "lon": 6.1},
+    "imagen": ""
+  },
+  {
+    "nombre": "KazSat-3",
+    "pais": "Kazajistán",
+    "tamano_caida_kg": 1745,
+    "material_principal": "Aluminio",
+    "fecha": "2014-04-28",
+    "inclinacion_orbita": 0.0,
+    "lugar_caida": {"lat": 43.2, "lon": 76.9},
+    "imagen": ""
+  },
+  {
+    "nombre": "Thor 6",
+    "pais": "Noruega",
+    "tamano_caida_kg": 3125,
+    "material_principal": "Aleación de aluminio",
+    "fecha": "2009-10-29",
+    "inclinacion_orbita": 0.1,
+    "lugar_caida": {"lat": 59.9, "lon": 10.8},
+    "imagen": ""
+  },
+  {
+    "nombre": "RADARSAT-1",
+    "pais": "Canadá",
+    "tamano_caida_kg": 2700,
+    "material_principal": "Aluminio",
+    "fecha": "1995-11-04",
+    "inclinacion_orbita": 98.6,
+    "lugar_caida": {"lat": 45.4, "lon": -75.7},
+    "imagen": ""
+  }
