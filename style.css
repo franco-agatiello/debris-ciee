@@ -158,3 +158,15 @@ body, html {
   margin-top: 4px;
   max-width: 220px;
 }
+
+/* Estilo para el label de Islas Malvinas */
+.malvinas-label {
+  background: rgba(255,255,255,0.95);
+  color: #233;
+  font-weight: bold;
+  border-radius: 6px;
+  border: 1px solid #b8b8b8;
+  font-size: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  padding: 2px 8px;
+}
