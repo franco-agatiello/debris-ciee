@@ -12,12 +12,16 @@ html, body {
   box-sizing: border-box;
 }
 
-.container-fluid, .row.flex-nowrap, main[style] {
+.container-fluid, .row.flex-nowrap {
   width: 100vw !important;
   max-width: 100vw !important;
   margin: 0 !important;
   padding: 0 !important;
   box-sizing: border-box;
+}
+
+main[style] {
+  padding: 0 !important;
 }
 
 #sidebar {
@@ -61,8 +65,7 @@ html, body {
 }
 
 #map {
-  width: 100vw !important;
-  max-width: 100vw !important;
+  width: 100% !important;
   min-height: 100vh;
   height: 100vh;
   z-index: 1;
