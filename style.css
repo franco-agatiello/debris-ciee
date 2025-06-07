@@ -14,31 +14,39 @@ body, html {
   border-right: 1px solid #dde1e7;
   background: #fff;
   box-shadow: 2px 0 10px rgba(50,60,90,0.04);
+  /* Tamaño reducido */
+  min-width: 170px;
+  max-width: 210px;
+  padding: 12px 8px !important;
 }
 
 #sidebar h4 {
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   color: #2c3e50;
 }
 
 #filter-form label {
+  font-size: 0.93rem;
   font-weight: 500;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
   color: #34495e;
 }
 
 #filter-form .form-select, #filter-form .form-control {
+  font-size: 0.93rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.7rem;
 }
 
 .sidebar-logo {
-  max-width: 140px;
+  max-width: 90px;
   display: block;
-  margin: 0 auto 1rem auto;
+  margin: 0 auto 0.5rem auto;
 }
 
 #map {
@@ -71,6 +79,8 @@ body, html {
 @media (max-width: 768px) {
   #sidebar {
     min-height: unset;
+    max-width: unset;
+    padding: 8px 3px !important;
     border-right: none;
     border-bottom: 1px solid #e0e0e0;
     box-shadow: none;
