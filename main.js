@@ -1,4 +1,4 @@
-let derbis = [];
+let debris = [];
 let mapa, capaPuntos, capaCalor, modo = "puntos";
 let leyendaPuntos, leyendaCalor;
 
@@ -22,18 +22,18 @@ const iconoRojo = L.icon({
 });
 
 async function cargarDatos() {
-  const resp = await fetch('data/derbis.json');
-  derbis = await resp.json();
+  const resp = await fetch('data/debris.json');
+  debris = await resp.json();
   poblarFiltros();
   actualizarMapa();
 }
 
 function poblarFiltros() {
-  const paises = Array.from(new Set(derbis.map(d => d.pais)));
+  const paises = Array.from(new Set(debris.map(d => d.pais)));
   const paisSelect = document.getElementById("pais");
   paisSelect.innerHTML = '<option value="">Todos</option>' + paises.map(p => `<option value="${p}">${p}</option>`).join('');
 
-  const materiales = Array.from(new Set(derbis.map(d => d.material_principal)));
+  const materiales = Array.from(new Set(debris.map(d => d.material_principal)));
   const materialSelect = document.getElementById("material");
   materialSelect.innerHTML = '<option value="">Todos</option>' + materiales.map(m => `<option value="${m}">${m}</option>`).join('');
 }
@@ -52,7 +52,7 @@ function obtenerFiltros() {
 
 function filtrarDatos() {
   const filtros = obtenerFiltros();
-  return derbis.filter(d => {
+  return debris.filter(d => {
     if (filtros.pais && d.pais !== filtros.pais) return false;
     if (filtros.material && d.material_principal !== filtros.material) return false;
     if (filtros.masa) {
