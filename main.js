@@ -177,21 +177,7 @@ function mostrarLeyendaCalor() {
 
 function initMapa() {
   mapa = L.map('map').setView([0, 0], 2);
-
-  // IGN Argentina / CONAE
-  L.tileLayer(
-    'https://wms.ign.gob.ar/geoserver/ows?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=IGNBaseTodo&STYLE=default&TILEMATRIXSET=GoogleMapsCompatible&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image/png',
-    {
-      attribution: 'Mapas © Instituto Geográfico Nacional de la República Argentina',
-      maxZoom: 18,
-      tileSize: 256
-    }
-  ).addTo(mapa);
-
-  // Etiqueta personalizada "Islas Malvinas"
-  L.marker([-51.7, -59], {interactive: false, opacity: 0})
-    .bindTooltip("Islas Malvinas", {permanent: true, direction: "center", className: "malvinas-label"})
-    .addTo(mapa);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapa);
 }
 
 function listeners() {
