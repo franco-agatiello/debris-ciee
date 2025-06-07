@@ -438,8 +438,8 @@
     "inclinacion_orbita": 0.0,
     "lugar_caida": {"lat": 43.2, "lon": 76.9},
     "imagen": ""
-  }
-{
+  },
+  {
     "nombre": "SatMex 6",
     "pais": "México",
     "tamano_caida_kg": 1800,
