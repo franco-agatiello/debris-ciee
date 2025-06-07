@@ -249,7 +249,6 @@
     "lugar_caida": {"lat": 24.7, "lon": 46.7},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Arabsat-1A_model.jpg/320px-Arabsat-1A_model.jpg"
   },
-  // ---- A partir de aquí, datos sintéticos ----
   {
     "nombre": "Zenit-8",
     "pais": "Rusia",
@@ -350,8 +349,6 @@
     "lugar_caida": {"lat": 28.6, "lon": -81.2},
     "imagen": ""
   },
-  // ... (agrega aquí hasta completar 150 objetos, puedes variar aleatoriamente los valores, países y fechas) ...
-  // Ejemplo para ahorrar espacio, aquí te muestro cómo continuar:
   {
     "nombre": "Kwangmyongsong-4",
     "pais": "Corea del Norte",
@@ -872,3 +869,4 @@
     "lugar_caida": {"lat": 45.4, "lon": -75.7},
     "imagen": ""
   }
+]
