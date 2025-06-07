@@ -12,13 +12,14 @@ html, body {
 }
 
 .container-fluid, .row.flex-nowrap {
-  width: 100% !important;
+  width: 100% !important;      /* Cambiado de 100vw a 100% */
   max-width: 100% !important;
   min-width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
   box-sizing: border-box;
   background: #f7f9fb !important;
+  overflow-x: hidden !important; /* Añadido extra por si acaso */
 }
 
 main[style] {
