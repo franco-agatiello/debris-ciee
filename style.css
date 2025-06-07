@@ -76,6 +76,23 @@ body, html {
   box-shadow: 0 0 0 0.15rem #007bff66;
 }
 
+#footer-ciee {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
+  font-size: 0.88rem;
+  color: #7a869a;
+  z-index: 9999;
+  background: rgba(255,255,255,0.93);
+  padding: 4px 10px 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #e1e5ec;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.05);
+}
+#footer-ciee a {
+  color: #007bff;
+  text-decoration: underline;
+}
 @media (max-width: 768px) {
   #sidebar {
     min-height: unset;
@@ -89,6 +106,18 @@ body, html {
     min-height: 60vh;
     height: 60vh;
     border-left: none;
+  }
+  #footer-ciee {
+    position: static;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 16px 0 0 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
 }
 
