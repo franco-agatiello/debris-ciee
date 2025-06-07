@@ -76,13 +76,12 @@ body, html {
   box-shadow: 0 0 0 0.15rem #007bff66;
 }
 
-/* Footer más chico y centrado */
+/* Footer más chico y perfectamente centrado */
 #footer-ciee {
   position: fixed;
   left: 50%;
-  transform: translateX(-50%);
-  right: 0;
   bottom: 12px;
+  transform: translateX(-50%);
   font-size: 0.78rem;
   color: #7a869a;
   z-index: 9999;
