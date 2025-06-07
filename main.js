@@ -44,7 +44,9 @@ function obtenerFiltros() {
     material: document.getElementById("material").value,
     masa: document.getElementById("masa").value,
     fechaDesde: document.getElementById("fecha-desde").value,
-    fechaHasta: document.getElementById("fecha-hasta").value
+    fechaHasta: document.getElementById("fecha-hasta").value,
+    inclinacionMin: document.getElementById("inclinacion-min").value,
+    inclinacionMax: document.getElementById("inclinacion-max").value
   };
 }
 
@@ -60,6 +62,8 @@ function filtrarDatos() {
     }
     if (filtros.fechaDesde && d.fecha < filtros.fechaDesde) return false;
     if (filtros.fechaHasta && d.fecha > filtros.fechaHasta) return false;
+    if (filtros.inclinacionMin && Number(d.inclinacion_orbita) < Number(filtros.inclinacionMin)) return false;
+    if (filtros.inclinacionMax && Number(d.inclinacion_orbita) > Number(filtros.inclinacionMax)) return false;
     return true;
   });
 }
@@ -100,6 +104,7 @@ function actualizarMapa() {
         País: ${d.pais}<br>
         Masa caída: ${d.tamano_caida_kg} kg<br>
         Material: ${d.material_principal}<br>
+        Inclinación órbita: ${d.inclinacion_orbita ?? "?"}°<br>
         Fecha: ${d.fecha}<br>
         ${d.imagen ? `<img src="${d.imagen}" alt="${d.nombre}">` : ''}
       `;
@@ -135,9 +140,9 @@ function mostrarLeyendaPuntos() {
   leyendaPuntos.onAdd = function (map) {
     const div = L.DomUtil.create('div', 'info legend');
     div.innerHTML += `<strong>Color del marcador según año de caída</strong><br>`;
-    div.innerHTML += `<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png" style="width:14px;vertical-align:middle;"> <span style="color:#999">Antes de 2000</span><br>`;
-    div.innerHTML += `<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png" style="width:14px;vertical-align:middle;"> <span style="color:#999">2000 a 2018</span><br>`;
-    div.innerHTML += `<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png" style="width:14px;vertical-align:middle;"> <span style="color:#999">2019 a Actualidad</span><br>`;
+    div.innerHTML += `<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png" style="width:13px;vertical-align:middle;"> <span style="color:#999">Antes de 2000</span><br>`;
+    div.innerHTML += `<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png" style="width:13px;vertical-align:middle;"> <span style="color:#999">2000 a 2018</span><br>`;
+    div.innerHTML += `<img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png" style="width:13px;vertical-align:middle;"> <span style="color:#999">2019 a Actualidad</span><br>`;
     return div;
   };
   leyendaPuntos.addTo(mapa);
@@ -152,7 +157,7 @@ function mostrarLeyendaCalor() {
     div.innerHTML += '<strong>Densidad de caídas</strong><br>';
     for (let i = 0; i < grades.length; i++) {
       div.innerHTML +=
-        `<i style="background:${colors[i]};width:18px;height:18px;display:inline-block;margin-right:6px;"></i> ${grades[i]}<br>`;
+        `<i style="background:${colors[i]};width:14px;height:14px;display:inline-block;margin-right:5px;border-radius:2px;"></i> ${grades[i]}<br>`;
     }
     return div;
   };
@@ -165,7 +170,7 @@ function initMapa() {
 }
 
 function listeners() {
-  ["pais", "material", "masa", "fecha-desde", "fecha-hasta"].forEach(id => {
+  ["pais", "material", "masa", "fecha-desde", "fecha-hasta", "inclinacion-min", "inclinacion-max"].forEach(id => {
     document.getElementById(id).addEventListener("change", actualizarMapa);
   });
   document.getElementById("modo-puntos").addEventListener("click", () => {
