@@ -4,26 +4,25 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  background: #f7f9fb;
-  color: #23272f;
   overflow-x: hidden;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: #f7f9fb !important;
+  color: #23272f;
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
-  box-sizing: inherit;
+.container-fluid, .row.flex-nowrap {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  min-width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  background: #f7f9fb !important;
 }
 
-body {
-  /* Elimina width y max-width para permitir que el grid de Bootstrap funcione bien */
-}
-
-.container-fluid {
-  position: relative;
-  padding: 0;
-  margin: 0;
-  /* No pongas width: 100vw ni max-width aquí */
+main[style] {
+  padding: 0 !important;
 }
 
 #sidebar {
@@ -34,8 +33,6 @@ body {
   min-width: 170px;
   max-width: 210px;
   padding: 12px 8px !important;
-  /* Asegura que no sobrepase el ancho del grid */
-  box-sizing: border-box;
 }
 
 #sidebar h4 {
@@ -69,13 +66,13 @@ body {
 }
 
 #map {
-  width: 100%;
+  width: 100% !important;
   min-height: 100vh;
   height: 100vh;
   z-index: 1;
-  border-left: 1px solid #dde1e7;
-  box-shadow: 0 5px 40px rgba(30,40,90,0.05);
-  /* No uses width: 100vw aquí */
+  border: none !important;
+  box-shadow: none !important;
+  background: #f7f9fb;
 }
 
 .btn-primary, .btn-secondary {
@@ -173,4 +170,10 @@ body {
   border-radius: 8px;
   margin-top: 4px;
   max-width: 220px;
+}
+
+/* --- AJUSTE DE LEYENDA PARA QUE NO QUEDE PEGADA AL BORDE --- */
+.leaflet-bottom.leaflet-right .info.legend {
+  margin-right: 20px !important;
+  margin-bottom: 20px !important;
 }
