@@ -5,6 +5,7 @@
     "tamano_caida_kg": 900,
     "material_principal": "Titanio",
     "fecha": "1978-01-24",
+    "inclinacion_orbita": 65.0,
     "lugar_caida": {"lat": 62.0, "lon": -120.0},
     "imagen": "img/240628-space-debris-2-ew-1216p-753a6f.webp"
   },
@@ -14,6 +15,7 @@
     "tamano_caida_kg": 75000,
     "material_principal": "Aluminio",
     "fecha": "1979-07-11",
+    "inclinacion_orbita": 50.0,
     "lugar_caida": {"lat": -31.0, "lon": 122.0},
     "imagen": "img/Debris_landed_in_Texas.jpg"
   },
@@ -23,6 +25,7 @@
     "tamano_caida_kg": 4000,
     "material_principal": "Aleación de aluminio",
     "fecha": "1991-02-07",
+    "inclinacion_orbita": 51.6,
     "lugar_caida": {"lat": -34.0, "lon": -53.0},
     "imagen": "img/ISS.jpg"
   },
@@ -32,6 +35,7 @@
     "tamano_caida_kg": 130000,
     "material_principal": "Aleación de aluminio",
     "fecha": "2001-03-23",
+    "inclinacion_orbita": 51.6,
     "lugar_caida": {"lat": -40.0, "lon": -160.0},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Mir_Space_Station_viewed_from_Endeavour_during_STS-89.jpg/320px-Mir_Space_Station_viewed_from_Endeavour_during_STS-89.jpg"
   },
@@ -41,6 +45,7 @@
     "tamano_caida_kg": 5660,
     "material_principal": "Aluminio",
     "fecha": "2011-09-24",
+    "inclinacion_orbita": 57.0,
     "lugar_caida": {"lat": 14.1, "lon": -170.2},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/UARS_artist_rendering.jpg/320px-UARS_artist_rendering.jpg"
   },
@@ -50,6 +55,7 @@
     "tamano_caida_kg": 8500,
     "material_principal": "Aluminio",
     "fecha": "2018-04-02",
+    "inclinacion_orbita": 42.8,
     "lugar_caida": {"lat": -13.6, "lon": -164.3},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Tiangong-1_Model.jpg/320px-Tiangong-1_Model.jpg"
   },
@@ -59,6 +65,7 @@
     "tamano_caida_kg": 1100,
     "material_principal": "Aluminio",
     "fecha": "2013-11-11",
+    "inclinacion_orbita": 96.7,
     "lugar_caida": {"lat": -60.0, "lon": -62.0},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/GOCE_satellite_model.png/320px-GOCE_satellite_model.png"
   },
@@ -68,6 +75,7 @@
     "tamano_caida_kg": 1360,
     "material_principal": "Aluminio",
     "fecha": "2015-08-01",
+    "inclinacion_orbita": 64.5,
     "lugar_caida": {"lat": 21.0, "lon": -148.0},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Genesis_II_in_orbit.jpg/320px-Genesis_II_in_orbit.jpg"
   },
@@ -77,6 +85,7 @@
     "tamano_caida_kg": 560,
     "material_principal": "Aleación de aluminio",
     "fecha": "2009-02-10",
+    "inclinacion_orbita": 86.4,
     "lugar_caida": {"lat": 72.5, "lon": 97.4},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Iridium_satellite.jpg/320px-Iridium_satellite.jpg"
   },
@@ -86,6 +95,7 @@
     "tamano_caida_kg": 880,
     "material_principal": "Aluminio",
     "fecha": "2007-01-11",
+    "inclinacion_orbita": 98.8,
     "lugar_caida": {"lat": 51.0, "lon": 82.0},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/FY-1C_satellite_model.JPG/320px-FY-1C_satellite_model.JPG"
   },
@@ -95,6 +105,7 @@
     "tamano_caida_kg": 1.5,
     "material_principal": "Magnesio",
     "fecha": "1964-03-17",
+    "inclinacion_orbita": 34.2,
     "lugar_caida": {"lat": 28.5, "lon": -80.5},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Vanguard_1.jpg/320px-Vanguard_1.jpg"
   },
@@ -104,6 +115,7 @@
     "tamano_caida_kg": 1600,
     "material_principal": "Aluminio",
     "fecha": "1996-03-19",
+    "inclinacion_orbita": 62.8,
     "lugar_caida": {"lat": 60.0, "lon": 90.0},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Molniya_1-44.jpg/320px-Molniya_1-44.jpg"
   },
@@ -113,6 +125,7 @@
     "tamano_caida_kg": 1900,
     "material_principal": "Aluminio",
     "fecha": "1997-09-23",
+    "inclinacion_orbita": 0.1,
     "lugar_caida": {"lat": 25.0, "lon": -60.0},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Telstar.jpg/320px-Telstar.jpg"
   },
@@ -122,6 +135,7 @@
     "tamano_caida_kg": 2040,
     "material_principal": "Aluminio",
     "fecha": "2024-02-21",
+    "inclinacion_orbita": 98.5,
     "lugar_caida": {"lat": -9.5, "lon": 65.6},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/ERS-2_Satellite.jpg/320px-ERS-2_Satellite.jpg"
   },
@@ -131,6 +145,7 @@
     "tamano_caida_kg": 8211,
     "material_principal": "Aluminio",
     "fecha": "2023-08-12",
+    "inclinacion_orbita": 98.55,
     "lugar_caida": {"lat": 34.0, "lon": 135.0},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Envisat_-_artist%27s_view.jpg/320px-Envisat_-_artist%27s_view.jpg"
   },
@@ -140,6 +155,7 @@
     "tamano_caida_kg": 1400,
     "material_principal": "Aluminio",
     "fecha": "2021-03-10",
+    "inclinacion_orbita": 98.8,
     "lugar_caida": {"lat": 10.0, "lon": -45.0},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/NOAA-17.jpg/320px-NOAA-17.jpg"
   },
@@ -149,6 +165,7 @@
     "tamano_caida_kg": 1200,
     "material_principal": "Aluminio",
     "fecha": "2012-11-15",
+    "inclinacion_orbita": 3.5,
     "lugar_caida": {"lat": 5.0, "lon": 20.0},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Astra_1A_-_model.jpg/320px-Astra_1A_-_model.jpg"
   },
@@ -158,6 +175,7 @@
     "tamano_caida_kg": 66,
     "material_principal": "Aleación de aluminio",
     "fecha": "1971-10-28",
+    "inclinacion_orbita": 82.0,
     "lugar_caida": {"lat": 51.5, "lon": -0.1},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Prospero_satellite.jpg/320px-Prospero_satellite.jpg"
   },
@@ -167,6 +185,7 @@
     "tamano_caida_kg": 160,
     "material_principal": "Aluminio",
     "fecha": "1988-09-19",
+    "inclinacion_orbita": 143.0,
     "lugar_caida": {"lat": 31.8, "lon": 35.2},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Ofeq-1.jpg/320px-Ofeq-1.jpg"
   },
@@ -176,6 +195,7 @@
     "tamano_caida_kg": 1000,
     "material_principal": "Aluminio",
     "fecha": "2018-11-19",
+    "inclinacion_orbita": 55.5,
     "lugar_caida": {"lat": 30.0, "lon": 104.0},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Beidou_satellite_model.jpg/320px-Beidou_satellite_model.jpg"
   },
@@ -185,6 +205,7 @@
     "tamano_caida_kg": 1850,
     "material_principal": "Aluminio",
     "fecha": "2022-10-30",
+    "inclinacion_orbita": 97.5,
     "lugar_caida": {"lat": 22.6, "lon": 88.4},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/RISAT-1_Artist_Impression.jpg/320px-RISAT-1_Artist_Impression.jpg"
   },
@@ -194,6 +215,7 @@
     "tamano_caida_kg": 2400,
     "material_principal": "Aluminio",
     "fecha": "2012-12-09",
+    "inclinacion_orbita": 0.0,
     "lugar_caida": {"lat": 55.8, "lon": 37.6},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Yamal-402_model.jpg/320px-Yamal-402_model.jpg"
   },
@@ -203,6 +225,7 @@
     "tamano_caida_kg": 1300,
     "material_principal": "Aluminio",
     "fecha": "2003-09-15",
+    "inclinacion_orbita": 3.9,
     "lugar_caida": {"lat": 40.4, "lon": -3.7},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Hispasat_1A.jpg/320px-Hispasat_1A.jpg"
   },
@@ -212,6 +235,7 @@
     "tamano_caida_kg": 145,
     "material_principal": "Aleación de aluminio",
     "fecha": "1962-09-29",
+    "inclinacion_orbita": 80.5,
     "lugar_caida": {"lat": 45.4, "lon": -75.7},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Alouette_1.jpg/320px-Alouette_1.jpg"
   },
@@ -221,6 +245,7 @@
     "tamano_caida_kg": 1200,
     "material_principal": "Aluminio",
     "fecha": "1985-02-08",
+    "inclinacion_orbita": 4.0,
     "lugar_caida": {"lat": 24.7, "lon": 46.7},
     "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Arabsat-1A_model.jpg/320px-Arabsat-1A_model.jpg"
   }
