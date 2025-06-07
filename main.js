@@ -177,7 +177,10 @@ function mostrarLeyendaCalor() {
 
 function initMapa() {
   mapa = L.map('map').setView([0, 0], 2);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapa);
+  // Usar OpenStreetMap ES para nombres en español
+  L.tileLayer('https://{s}.tile.openstreetmap.es/osm/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(mapa);
 }
 
 function listeners() {
