@@ -109,7 +109,18 @@ function actualizarMapa() {
         ${d.imagen ? `<img src="${d.imagen}" alt="${d.nombre}">` : ''}
       `;
       const marker = L.marker([d.lugar_caida.lat, d.lugar_caida.lon], {icon: marcadorPorFecha(d.fecha)})
-        .bindPopup(popupContenido);
+        .bindPopup(popupContenido, {autoPan: true});
+
+      // Fix: Ajustar el popup cuando la imagen termine de cargar
+      marker.on('popupopen', function(e) {
+        const imgs = e.popup._contentNode.querySelectorAll('img');
+        imgs.forEach(function(img) {
+          img.addEventListener('load', function() {
+            e.popup.update();
+          });
+        });
+      });
+
       capaPuntos.addLayer(marker);
     });
     capaPuntos.addTo(mapa);
