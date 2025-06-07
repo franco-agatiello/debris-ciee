@@ -14,7 +14,6 @@ body, html {
   border-right: 1px solid #dde1e7;
   background: #fff;
   box-shadow: 2px 0 10px rgba(50,60,90,0.04);
-  /* Tamaño reducido */
   min-width: 170px;
   max-width: 210px;
   padding: 12px 8px !important;
@@ -43,8 +42,9 @@ body, html {
   margin-bottom: 0.7rem;
 }
 
+/* Logo más grande */
 .sidebar-logo {
-  max-width: 90px;
+  max-width: 140px;
   display: block;
   margin: 0 auto 0.5rem auto;
 }
@@ -76,11 +76,14 @@ body, html {
   box-shadow: 0 0 0 0.15rem #007bff66;
 }
 
+/* Footer más chico y centrado */
 #footer-ciee {
   position: fixed;
-  left: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  right: 0;
   bottom: 12px;
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   color: #7a869a;
   z-index: 9999;
   background: rgba(255,255,255,0.93);
@@ -88,6 +91,9 @@ body, html {
   border-radius: 6px;
   border: 1px solid #e1e5ec;
   box-shadow: 0 2px 8px rgba(44,62,80,0.05);
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
 }
 #footer-ciee a {
   color: #007bff;
@@ -118,25 +124,26 @@ body, html {
     border-radius: 0;
     border-left: none;
     border-right: none;
+    transform: none;
   }
 }
 
-/* Leyenda profesional y compacta */
+/* Leyenda profesional y compacta - más chica */
 .info.legend {
   background: #fff;
   opacity: 1;
-  padding: 10px 14px;
+  padding: 8px 10px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(44,62,80,0.08);
   border: 1px solid #dde1e7;
-  font-size: 0.85rem;
+  font-size: 0.74rem;
   color: #2c3e50;
-  min-width: 120px;
+  min-width: 90px;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 .info.legend strong {
-  font-size: 0.92rem;
+  font-size: 0.81rem;
   margin-bottom: 4px;
   display: block;
 }
