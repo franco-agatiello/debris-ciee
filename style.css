@@ -9,6 +9,10 @@ body, html {
   color: #23272f;
 }
 
+.container-fluid {
+  position: relative;
+}
+
 #sidebar {
   min-height: 100vh;
   border-right: 1px solid #dde1e7;
@@ -76,9 +80,9 @@ body, html {
   box-shadow: 0 0 0 0.15rem #007bff66;
 }
 
-/* Footer más chico y perfectamente centrado */
+/* Footer más chico y perfectamente centrado dentro del área útil */
 #footer-ciee {
-  position: fixed;
+  position: absolute;
   left: 50%;
   bottom: 12px;
   transform: translateX(-50%);
